@@ -1,6 +1,22 @@
-version: '3.3'
+version: "3.3"
+
 services:
   web:
     image: tubes-1:latest
+    build: 
+      context: ./
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    volumes:
+      - ./App:/var/www/html/
     ports:
       - 8008:80
+
+  db:
+    build:
+      context: ./
+      dockerfile: Dockerfile.database
+    restart: always
+    ports:
+      - "3307:3306"
