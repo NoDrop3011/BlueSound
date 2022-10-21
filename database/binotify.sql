@@ -52,6 +52,7 @@ DROP TABLE IF EXISTS `song`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `song` (
   `song_id` int NOT NULL,
+  `judul` char(64) NOT NULL,
   `penyanyi` char(128) DEFAULT NULL,
   `tanggal_terbit` date NOT NULL,
   `genre` char(64) DEFAULT NULL,
@@ -109,4 +110,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-21 16:08:16
+-- Dump completed on 2022-10-22  4:58:48
