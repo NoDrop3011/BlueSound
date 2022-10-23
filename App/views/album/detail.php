@@ -1,0 +1,1 @@
+<h1>Detail of album with id <?php echo $data["albumId"]?></h1>
