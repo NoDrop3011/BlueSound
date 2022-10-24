@@ -18,6 +18,8 @@ abstract class Controller {
         header("Location: " . $path);
         die();
     }
+
+    
 }
 
 ?>

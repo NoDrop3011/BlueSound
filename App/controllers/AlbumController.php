@@ -12,6 +12,15 @@ use App\core\AlbumModel;
 
 class AlbumController extends Controller {
 
+    public function showAllAlbum(){
+        $albumModel = new AlbumModel();
+        $album = $albumModel->selectAllAlbum();
+        var_dump($album);
+
+        $this->view("album/detail", [
+        ]);
+    }
+
     public function showAlbumDetail(int $albumId) {
         // GET /album/<albumId>
         // Shows the home page
