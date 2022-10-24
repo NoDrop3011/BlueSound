@@ -50,4 +50,10 @@ class UserModel {
             );
         } 
     }
+
+    public function findUser($username, $password)
+    {
+        $query = "SELECT username, password
+            FROM user";
+    }
 }
