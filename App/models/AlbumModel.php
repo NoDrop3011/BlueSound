@@ -57,4 +57,41 @@ class AlbumModel {
 
         return $this->db->fetch();
     }
+
+    public function addAlbumToList($judul, $penyanyi, $total_duration, $image_path, $tanggal_terbit, $genre){
+        $query = "INSERT INTO album 
+                (judul, penyanyi, total_duration, image_path, tanggal_terbit, genre)
+                VALUES ($judul, $penyanyi, $total_duration, $image_path, $tanggal_terbit, $genre)";
+
+        $this->db->prepare($query);
+
+        $this->db->bind("judul", $judul);
+
+        $this->db->bind("penyanyi", $penyanyi);
+
+        $this->db->bind("total_duration", $total_duration);
+
+        $this->db->bind("image_path", $image_path);
+
+        $this->db->bind("tanggal_terbit", $tanggal_terbit);
+
+        $this->db->bind("genre", $genre);
+
+        $this->db->execute();
+
+        return $this->db->fetch();
+    }
+
+    public function deleteAlbumFromList($id) {
+        $query = "DELETE FROM album
+                WHERE album_id = :id";
+
+        $this->db->prepare($query);
+
+        $this->db->bind("id", $id);
+
+        $this->db->execute();
+
+        return $this->db->fetch();
+    }
 }
