@@ -7,8 +7,8 @@ class Router {
     function handleRequest(): void {
         // Iterates through routes to find a handler for the corresponding route
         $path = "";
-        if (isset($_SERVER["REQUEST_URI"])) {
-            $path = ltrim(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), '/');
+        if (isset($_GET["url"])) {
+            $path = $_GET["url"];
         }
 
         $method = $_SERVER["REQUEST_METHOD"];

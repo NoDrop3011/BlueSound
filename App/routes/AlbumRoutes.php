@@ -8,7 +8,7 @@ use App\core\Routes;
 
 class AlbumRoutes extends Routes {
     protected function defineRoutes(): void {
-        $this->get("index.php/albums/(?P<albumId>\d+)", "AlbumController", "showAlbumDetail");
+        $this->get("albums/(?P<albumId>\d+)", "AlbumController", "showAlbumDetail");
     }
 }
 

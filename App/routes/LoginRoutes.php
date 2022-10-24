@@ -8,7 +8,7 @@ use App\core\Routes;
 
 class LoginRoutes extends Routes {
     protected function defineRoutes(): void {
-        $this->get("index.php/login", "LoginController", "showLoginPage");
+        $this->get("login", "LoginController", "showLoginPage");
     }
 }
 
