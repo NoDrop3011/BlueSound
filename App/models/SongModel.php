@@ -22,7 +22,7 @@ class SongModel {
         $this->db->prepare($query);
 
         $this->db->bind("id", $id);
-
+        
         $this->db->execute();
 
         return $this->db->fetch();
