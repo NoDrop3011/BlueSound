@@ -25,7 +25,7 @@ class LoginController extends Controller {
         // $this->view("home");
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $ user = new UserModel()
+        $user = new UserModel();
         if ($username == 'aaa' && $password == 'bbb')
         {
             console_log("true");
