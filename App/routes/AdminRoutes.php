@@ -8,8 +8,8 @@ use App\core\Routes;
 
 class AdminRoutes extends Routes {
     protected function defineRoutes(): void {
-        $this->get("index.php/users", "AdminController", "showUsersPage");
-        $this->get("index.php/api/users", "AdminController", "getPaginatedUserData");
+        $this->get("users", "AdminController", "showUsersPage");
+        $this->get("api/users", "AdminController", "getPaginatedUserData");
     }
 }
 
