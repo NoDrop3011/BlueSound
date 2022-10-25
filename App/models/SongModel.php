@@ -138,7 +138,7 @@ class SongModel {
             penyanyi, 
             tanggal_terbit, 
             genre, duration, 
-            audio_path, 
+            audio_path,
             image_path, 
             s.album_id, 
             a.judul as judul_album

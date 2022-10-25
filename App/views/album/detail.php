@@ -1,37 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<div class="newalbum">
-    <div class="containeralbum">
-    <?php
+<h1>Detail of album with id <?php echo $data["album"]["album_id"]?></h1>
 
-    use App\controllers\AlbumController;
-
-    require_once "controllers/AlbumController.php";
-    $allAlbum = new AlbumController();
-    $allAlbum->showAllAlbum();
-    $count = mysqli_num_rows($music);
-    ?>
-    <h2>Recent Album</h2>
-    <div class="queryrows">
-        <?php
-        if ($count >0){
-        while ($row = mysqli_fetch_assoc($music)){
-            ?>
-            <div class="card">
-                <figure class='cover'>
-                <img src=<?php echo $row['Image_path']?> alt="Album">
-                </figure>
-                <div class="card-body">
-                <h3><?php echo $row['judul'];?></h3>
-                <div class="genreAlbum"><?php echo $row['penyanyi'];?></div>
-                <p class="smallAtribute"><?php echo $row['genre'];?></p>
-                <p class="smallAtribute"><?php echo date('d·m·y',strtotime($row['tanggal_terbit']));?></p>
-                </div>
-            </div>
-        <?php
-        }
-        } ?>
-    </div>
-    </div>
-</div>
-</html>
+<img src="/storage/<?php echo $data["album"]["image_path"]?>">
+<br>
+Title: <?php echo $data["album"]["judul_lagu"]?>
+<br>
+Part of <a href="/albums/<?php echo $data["album"]["album_id"]?>"><?php echo $data["song"]["judul_album"]?></a>
+<br>
+<?php echo $data["album"]["penyanyi"]?>
+<br>
+<?php echo $data["album"]["tanggal_terbit"]?>
+<br>
+<?php echo $data["album"]["genre"]?>
+<br>
+<?php echo $data["album"]["duration"]?>s
+<br>
+<audio controls>
+    <source src="/storage/<?php echo $data["album"]["audio_path"]?>">
+</audio>
