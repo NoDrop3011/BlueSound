@@ -1,13 +1,15 @@
--- MySQL dump 10.13  Distrib 8.0.31, for Win64 (x86_64)
+CREATE DATABASE  IF NOT EXISTS `binotify` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `binotify`;
+-- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
 --
--- Host: localhost    Database: binotify
+-- Host: 127.0.0.1    Database: binotify
 -- ------------------------------------------------------
--- Server version	8.0.31
+-- Server version	8.0.30
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
+/*!50503 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -64,7 +66,7 @@ CREATE TABLE `song` (
   PRIMARY KEY (`song_id`),
   KEY `album_id` (`album_id`),
   CONSTRAINT `song_ibfk_1` FOREIGN KEY (`album_id`) REFERENCES `album` (`album_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,7 +75,7 @@ CREATE TABLE `song` (
 
 LOCK TABLES `song` WRITE;
 /*!40000 ALTER TABLE `song` DISABLE KEYS */;
-INSERT INTO `song` VALUES (1,'Heavy Rotation','JKT48','2013-02-16','J-pop',283,'/heavy_rotation/heavy_rotation.mp4','/heavy_rotation/heavy_rotation.jpg',1),(2,'Baby! Baby! Baby!','JKT48','2013-02-16','J-pop',242,'/heavy_rotation/baby!_baby!_baby!.mp4','/heavy_rotation/baby!_baby!_baby!.jpg',1),(3,'Remaja','HiVi!','2017-02-23','Pop',218,'/kereta_kencan/remaja.mp4','/kereta_kencan/remaja.jpg',2),(4,'RIVER','JKT48','2013-05-11','J-pop',281,'/river/river.mp4','/river/river.jpg',3);
+INSERT INTO `song` VALUES (5,'Baby Elephant Walk','HiVi!','2013-02-11','Pop',60,'songAudio/BabyElephantWalk60.wav','songImage/image1.jpg',2),(6,'Cantina Band','JKT48','2014-02-11','Rock',60,'songAudio/CantinaBand60.wav','songImage/image2.jpg',1),(7,'Fanfare','JKT48','2016-05-11','J-pop',60,'songAudio/Fanfare60.wav','songImage/image3.jpg',3),(8,'Gettysburg','JKT48','2018-02-12','Rock',10,'songAudio/gettysburg10.wav','songImage/image4.jpg',1),(9,'Groove 500','HiVi!','2012-05-03','Jazz',20,'songAudio/Groove500.mp3','songImage/image5.jpg',2),(10,'Groove 1000','HiVi!','2013-07-08','Jazz',43,'songAudio/Groove1000.mp3','songImage/image6.jpg',2),(11,'Groove 2000','HiVi!','2004-02-06','Jazz',86,'songAudio/Groove2000.mp3','songImage/image7.jpg',2),(12,'Imperial March','JKT48','2010-09-11','Classic',60,'songAudio/ImperialMarch60.wav','songImage/image8.jpg',3),(13,'Pink Panther','JKT48','2015-02-11','Pop',30,'songAudio/PinkPanther30.wav','songImage/image9.jpg',1),(14,'Preamble','HiVi!','2019-02-11','J-pop',19,'songAudio/preamble.wav','songImage/image10.jpg',2),(15,'Star Wars','JKT48','2012-12-09','J-pop',60,'songAudio/StarWars60.wav','songImage/image11.jpg',3),(16,'Taunt','JKT48','2015-02-05','Classic',4,'songAudio/taunt.wav','songImage/image12.jpg',1);
 /*!40000 ALTER TABLE `song` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -90,8 +92,7 @@ CREATE TABLE `user` (
   `password` char(255) NOT NULL,
   `username` char(255) NOT NULL,
   `isAdmin` tinyint(1) NOT NULL,
-  PRIMARY KEY (`user_id`),
-  UNIQUE KEY `UNIQUE_user` (`email`,`username`)
+  PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -114,4 +115,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-25  3:27:52
+-- Dump completed on 2022-10-26  3:01:51

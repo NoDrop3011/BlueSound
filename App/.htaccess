@@ -3,5 +3,6 @@ Options -Indexes
 RewriteEngine On 
 
 RewriteRule ^style/(.*)$ style/$1 [L]
+RewriteRule ^storage/(.*)$ storage/$1 [L]
 RewriteRule ^index.php/(.*)$ index.php?url=$1 [L,QSA]
 RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
