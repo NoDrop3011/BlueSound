@@ -133,9 +133,24 @@ class SongModel {
     }
 
     public function selectById($id) {
-        $query = "SELECT *
-            FROM song
-            WHERE song_id = :id";
+        $query = "SELECT song_id, 
+            s.judul as judul_lagu, 
+            penyanyi, 
+            tanggal_terbit, 
+            genre, duration, 
+            audio_path, 
+            image_path, 
+            s.album_id, 
+            a.judul as judul_album
+            FROM 
+                (SELECT * 
+                    FROM song
+                    WHERE song_id = :id) as s
+                LEFT JOIN
+                (SELECT album_id, judul
+                    FROM album) as a
+                ON s.album_id = a.album_id
+                ";
 
         $this->db->prepare($query);
         $this->db->bind(":id", $id);

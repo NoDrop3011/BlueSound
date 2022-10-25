@@ -17,9 +17,15 @@ class SongController extends Controller {
         // Shows the song detail page of song with id songId
 
         $song = (new SongModel())->selectById($songId);
+
+        $dur = shell_exec("ffmpeg -i storage/".$song["audio_path"]." 2>&1");
+        preg_match("/Duration: (.{2}):(.{2}):(.{2})/", $dur, $duration);
+        var_dump($duration);
+
+        if (!$song) $this->defaultRedirect();
         
         $this->view("song/detail", [
-            "songId" => $songId
+            "song" => $song
         ]);
     }
 
