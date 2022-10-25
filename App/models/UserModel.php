@@ -51,9 +51,12 @@ class UserModel {
         } 
     }
 
-    public function findUser($username, $password)
+    public function isUserExist($username, $password) : bool
     {
-        $query = "SELECT username, password
-            FROM user";
+        $query = "SELECT * FROM user where username = '". $username ."' and password = '" . $password . "'";
+        $this->db->prepare($query);
+        $this->db->execute();
+        $totalRows = $this->db->rowCount();
+        return $totalRows >= 1;
     }
 }

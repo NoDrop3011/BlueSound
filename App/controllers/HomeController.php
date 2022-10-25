@@ -13,6 +13,21 @@ class HomeController extends Controller {
         
         $this->view("home");
     }
+
+    public function postCallback() {
+        // POST callback
+        
+        if (isset($_POST['logout']))
+        {
+            unset($_SESSION['loggedInUser']);
+            $this->redirectTo("home");
+        }
+        
+        else if (isset($_POST['login']))
+        {
+            $this->redirectTo('login');
+        }
+    }
 }
 
 ?>

@@ -14,9 +14,14 @@ use App\core\UserModel;
 class LoginController extends Controller {
     public function showLoginPage() {
         // GET /
-        // Shows the home page
-        
-        $this->view("login");
+        if (isset($_SESSION['loggedInUser']))
+        {
+            $this->redirectTo("home");
+        }
+        else
+        {
+            $this->view("login");
+        }
     }
 
     public function loginCheck() {
@@ -26,15 +31,15 @@ class LoginController extends Controller {
         $username = $_POST['username'];
         $password = $_POST['password'];
         $user = new UserModel();
-        if ($username == 'aaa' && $password == 'bbb')
+        if (!isset($_SESSION['loggedInUser']) && $user->isUserExist($username, $password))
         {
-            console_log("true");
+            $_SESSION['loggedInUser'] = $username;
+            $this->redirectTo("home");
         }
         else
         {
-            console_log("false");
+            $this->view("login");
         }
-        $this->view("login");
     }   
 }
 
