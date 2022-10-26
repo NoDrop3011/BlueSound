@@ -4,7 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Albums</title>
+    <title>
+        <?php 
+            if (isset($_GET["searchkey"])) {
+                echo "Search: " . $_GET["searchkey"];
+            }
+            else {
+                echo "Songs";
+            }
+        ?>
+    </title>
 </head>
 <body>
     <?php 

@@ -12,15 +12,11 @@ use App\core\SongModel;
 class SongController extends Controller {
 
     public function showSongDetail(int $songId) {
-        // GET /index.php/songs/<songId>
+        // GET /songs/<songId>
 
         // Shows the song detail page of song with id songId
 
         $song = (new SongModel())->selectById($songId);
-
-        $dur = shell_exec("ffmpeg -i storage/".$song["audio_path"]." 2>&1");
-        preg_match("/Duration: (.{2}):(.{2}):(.{2})/", $dur, $duration);
-        var_dump($duration);
 
         if (!$song) $this->defaultRedirect();
         
@@ -29,8 +25,51 @@ class SongController extends Controller {
         ]);
     }
 
+    public function updateSong(int $songId) {
+        // PUT /songs/<songId>
+
+        // Updates a song with id songId
+        // Admin only
+
+        $isAdmin = true;
+        if (!$isAdmin) {
+            http_response_code(403);
+        }
+
+        $songModel = new SongModel();
+        $song = $songModel->selectById($songId);
+
+        if (!$song) $this->redirectTo("/songs");
+        
+        $songModel->updateSong($songId, $_POST, $_FILES);
+
+        $this->redirectTo("/song/" . (string)$songId);
+    }
+
+    public function deleteSong(int $songId) {
+        // DELETE /songs/<songId>
+        
+        // Deletes a song with id songId
+        // Admin only
+
+        $isAdmin = true;
+        if (!$isAdmin) {
+            http_response_code(403);
+            die();
+        }
+        
+        $songModel = new SongModel();
+        $song = $songModel->selectById($songId);
+
+        if (!$song) $this->redirectTo("/songs");
+
+        $songModel->deleteSong($songId);
+
+        $this->redirectTo("/");
+    }
+
     public function showSongs() {
-        // GET /index.php/songs
+        // GET /songs
         // URL parameters: searchkey (string, search input by user)
 
         // Shows search result of songs based on search key
@@ -52,7 +91,7 @@ class SongController extends Controller {
     }
 
     public function getPaginatedSongData() {
-        // GET /index.php/api/songs
+        // GET /api/songs
         // URL parameters: 
         // searchkey (string, search input by user), base (string (all | title | artist | year), search base)
         // titleorder (int (-1 | 0 | 1), order by title), yearorder (int (-1 | 0 | 1), order by year)
@@ -64,7 +103,7 @@ class SongController extends Controller {
         $page = 1;
         if (isset($_GET["page"])) $page = $_GET["page"];
 
-        $rowPerPage = 1;
+        $rowPerPage = 10;
 
         $searchKey = "";
         if (isset($_GET["searchkey"])) $searchKey = $_GET["searchkey"];

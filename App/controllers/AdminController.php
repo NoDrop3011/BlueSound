@@ -11,7 +11,7 @@ use App\core\UserModel;
 class AdminController extends Controller {
 
     public function showUsersPage() {
-        // GET /index.php/users
+        // GET /users
         
         // Shows users page
         // Admin only
@@ -26,7 +26,7 @@ class AdminController extends Controller {
     }
 
     public function getPaginatedUserData() {
-        // GET /index.php/api/users
+        // GET /api/users
         // URL parameters: page (int, current page)
 
         // Returns JSON containing data (username and email of user) and totalPages
