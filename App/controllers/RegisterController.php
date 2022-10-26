@@ -49,7 +49,11 @@ class RegisterController extends Controller {
     public function checkUsername() {
         $username = $_GET["Username"];
         $user = new UserModel();
-        if($user->isUsernameExist($username))
+        if (!preg_match('/^[a-zA-Z0-9_]{1,}$/', $username))
+        {
+            echo "INVALID USERNAME";
+        }
+        else if($user->isUsernameExist($username))
         {
             echo "NOT AVAILABLE";
         }
@@ -62,7 +66,11 @@ class RegisterController extends Controller {
     public function checkEmail() {
         $email = $_GET["Email"];
         $user = new UserModel();
-        if($user->isEmailExist($email))
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL))
+        {
+            echo "INVALID EMAIL ";
+        }
+        else if($user->isEmailExist($email))
         {
             echo "NOT AVAILABLE";
         }
