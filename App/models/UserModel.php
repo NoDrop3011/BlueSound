@@ -53,11 +53,11 @@ class UserModel {
 
     public function isUserExist($username, $password) : bool
     {
-        $query = "SELECT * FROM user where username = '". $username ."' and password = '" . $password . "'";
+        $query = "SELECT password FROM user where username = '". $username ."'";
         $this->db->prepare($query);
-        $this->db->execute();
+        $password_hashed = $this->db->fetch();
         $totalRows = $this->db->rowCount();
-        return $totalRows > 0;
+        return $totalRows > 0 && password_verify($password, $password_hashed["password"]);
     }
 
     public function isUsernameExist($username) : bool 
@@ -88,9 +88,10 @@ class UserModel {
     }
 
     public function addUser($email, $password, $username) : void {
+        $password_hashed = password_hash($password, PASSWORD_DEFAULT);
         $query = "INSERT INTO user 
         (email, password, username, isAdmin) 
-        VALUES ('".$email."','".$password."','".$username."', FALSE)";
+        VALUES ('".$email."','".$password_hashed."','".$username."', FALSE)";
         $this->db->prepare($query);
         $this->db->execute();
     }

@@ -1,87 +1,254 @@
-/* style for login page */
+/*header*/
 
-#form-image div{
+.header-authen{
+    background-color: #FFFFFF;
+    height: 101.67px;
+    left: -0.01%;
+    right: 0.01%;
+    top: 0px;
+    border-bottom: 0.977597px solid #D9DADC;;
+}
+
+/* main-container -> top + form + footer */
+.main-container{
+    position: absolute;
+    width: 439.92px;
+    height: 809.45px;
+    left: 43.6%;
+    top: 140.77px;
+}
+h1{
+    position: absolute;
+    top: 120px;
+    width: 439.92px;
+    height: 809.45px;
+    left: 45%;
+}
+.text-top{
+    position: absolute;
+    width: 190.54px;
+    height: 17.6px;
+    left: calc(50% - 190.54px/2 + 0.87px);
+    top: 0.98px;
+
+    font-style: normal;
+    font-weight: normal;
+    /* TODO Ganti jadi calc biar semua sebaris */
+    font-size: 14px;
+    line-height: 20px;
+    /* or 143% */
+
     display: flex;
-
-}
-
-#form-image input{
-    flex: 3;
-    
-}
-
-#form-image button{
-    
-    flex:2;
-    margin-top: 0;
-    height: 47px;
-}
-
-.select-seat{
-    display: flex;
-}
-
-a{
-    color: rgba(30, 198, 228, 0.845);
-}
-
-#login-form {
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(88, 88, 88, 0.2), 0 6px 20px 0 rgba(129, 129, 129, 0.19);
-    width: 383px;
-    margin: auto;
-    padding: 32px;
-    border-radius: 10px;
-    margin-top: 174px;
-}
-
-.form-input{
-margin-top: 60px;
-
-
-}
-
-body{
-    font-family:  Helvetica, sans-serif;
-}
-
-p{
+    align-items: center;
     text-align: center;
-    font-size: 13px;
-    margin-top: 30px; 
 }
 
-#login-form label{
-    display: block;
-    color: grey;
-    font-size: 15;  
-    margin-bottom: 12px;
-    margin-top: 25px;  
-    text-align: left;
+/* Form */
+form{
+    position: absolute;
+    height: 270.79px;
+    left: 0.39%;
+    right: -0.39%;
+    top: 80px;
+
+    font-family: 'circular';
+}
+
+.username-div{
+    position: absolute;
+    height: 93.85px;
+    left: -25%;
+    right: 25%;
+    top: 0px;
+}
+
+.name-div{
+    position: absolute;
+    height: 93.85px;
+    left: 0%;
+    right: 0%;
+    top: calc(93.85px * 1);
+}
+
+.email-div{
+    position: absolute;
+    height: 93.85px;
+    left: 0%;
+    right: 0%;
+    top: calc(93.85px * 2);
+}
+
+.register-password-div{
+    position: absolute;
+    height: 93.85px;
+    left: 0%;
+    right: 0%;
+    top: calc(93.85px * 3);
+}
+
+.password-div{    
+    position: absolute;
+    height: 93.85px;
+    left: -25%;
+    right: 25%;
+    top: 120px;
+}
+
+.conf-password-div{    
+    position: absolute;
+    height: 93.85px;
+    left: 0%;
+    right: 0%;
+    top: calc(93.85px * 4);
+}
+
+.register-submit-form-div{
+    position: absolute;
+    height: 46.92px;
+    left: 0%;
+    right: 0%;
+    top: 489.55px;  
+}
+
+.submit-form-div{
+    position: absolute;
+    height: 46.92px;
+    left: -29%;
+    right: 29%;
+    top: 240px;    
+}
+
+#input-form{
+    position: absolute;
+    height: 50.84px;
+    left: 0%;
+    right: 0%;
+    top: 27.37px;
+
+    background: #FFFFFF;
+    box-shadow: inset 0px 0px 0px 0.97px #878787;
+    border-radius: 3.91px;
     
+    padding: 0 3% 0 3.1%;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 15.6px;
 }
 
-
-#login-form input{
-    outline: 0;
-    width: 100%;
-    height: 47px;
-    border-radius: 5px;
-    border-color: lightgrey;
-    border-style: solid;
-    padding: 16;
+#input-form:hover{
+    border: 1px solid black;
 }
 
-#login-form h3{
-    text-align: center; 
-}
+#submit-form{
+    position: absolute;
+    height: 46.92px;
+    left: 40%;
+    right: 0%;
+    top: 0px;
+    width: 121px;
 
-#submit-button{
-    height: 57px;
-    background-color: rgba(30, 198, 228, 0.845);
-    color: white;
-    width: 100%;
-    border-radius: 5px;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 20px;
+    line-height: 20px;
+    /* or 143% */
+
+    align-items: center;
+    text-align: center;
+    letter-spacing: 1.955px;
+    text-transform: uppercase;
+
+    border-radius: 488.8px;
     border: none;
-    margin-top: 47px;
+    background: rgba(30, 198, 228, 0.845)
 }
+
+#submit-form:hover{
+    transform: scale(1.05);
+}
+
+label{
+    font-weight: bold;
+}
+
+.border{
+    position: absolute;
+    height: 1.96px;
+    left: -25%;
+    right: 25%;
+    top: 324px;
+    border: 0.97px solid #D9DADC;
+}
+
+.submit-border{
+    position: absolute;
+    height: 1.96px;
+    left: -0.06%;
+    right: 0.06%;
+    top: 650px;
+
+    border: 0.97px solid #D9DADC;
+}
+
+/* Footer */
+.main-bottom{
+    position: absolute;
+    height: 89.94px;
+    left: 0.39%;
+    right: -0.39%;
+    top: 430.23px;
+}
+
+.submit-main-bottom{
+    position: absolute;
+    height: 89.94px;
+    left: 0.39%;
+    right: -0.39%;
+    top: 700px;
+}
+
+.footer-text{
+    position: absolute;
+    width: 198px;
+    height: 22.48px;
+    left: 7%;
+    top: 330px;
+
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 17.5px;
+    line-height: 23px;
+    /* or 133% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-button{
+    box-sizing: border-box;
+
+    position: absolute;
+    height: 46.9px;
+    left: -25%;
+    right: 25%;
+    top: 390px;
+
+    border: 1px solid #878787;
+    border-radius: 488.8px;
+
+    background-color: white;
+    font-family: inherit;
+    font-size: 13.6864px;
+    line-height: 20px;
+
+    letter-spacing: 1.95px;
+    text-transform: uppercase;
+    color: #6A6A6A;
+}
+
+.footer-button:hover{
+    border: 1px solid black;
+}
+

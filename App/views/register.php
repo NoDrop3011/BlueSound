@@ -24,9 +24,13 @@ function validate() {
     unique_Email = document.getElementById('unique_Email').innerHTML;
     password = document.getElementById('password').value;
     confirmPassword = document.getElementById('confirmPassword').value;
-    valid = unique_Username === "OK" && unique_Email === "OK"
-            && password === confirmPassword && unique_Username && unique_Email
-            && password && confirmPassword;
+    valid = unique_Username === "OK" 
+            && unique_Email === "OK"
+            && password === confirmPassword
+            && unique_Username.length !== 0 
+            && unique_Email.length !== 0
+            && password.length !== 0
+            && confirmPassword.length !== 0;
     if (valid)
     {
       document.getElementById("submitButton").disabled = false;
@@ -43,6 +47,8 @@ function validate() {
 window.onload = function() {
     validate();
   }
+setInterval(validate, 50);
+
 </script>
 
 <form method=POST>
