@@ -4,8 +4,10 @@ namespace App\controllers;
 
 require_once "core/Controller.php";
 require_once "models/SongModel.php";
+require_once "models/AlbumModel.php";
 require_once "utils/Debug.php";
 
+use App\core\AlbumModel;
 use App\core\Controller;
 use App\core\SongModel;
 
@@ -19,10 +21,23 @@ class SongController extends Controller {
         $song = (new SongModel())->selectById($songId);
 
         if (!$song) $this->defaultRedirect();
+
+        $isAdmin = true;
+
+        if ($isAdmin) {
+            $albums = (new AlbumModel())->selectAllNoPagination();
+            $this->view("admin/songDetail", [
+                "song" => $song,
+                "albums" => $albums
+            ]);
+        }
+        else {
+            $this->view("song/detail", [
+                "song" => $song
+            ]);
+        }
         
-        $this->view("song/detail", [
-            "song" => $song
-        ]);
+        
     }
 
     public function updateSong(int $songId) {

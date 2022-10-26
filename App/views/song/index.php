@@ -85,7 +85,7 @@
 
                     if (response.data.length > 0) {
                         response.data.forEach(song => {
-                            songListHTML += "<a href='/index.php/songs/" + song.song_id + "'><div>"; 
+                            songListHTML += "<a href='/songs/" + song.song_id + "'><div>"; 
                             songListHTML += "<span>" + song.judul + "</span>"
                             songListHTML += "<span>" + song.penyanyi + "</span>"
                             songListHTML += "<span>" + song.tahun_terbit + "</span>"
@@ -161,7 +161,7 @@
                 genre: genre
             });
 
-            request.open("GET", "/index.php/api/songs?" + requestURLParams.toString());
+            request.open("GET", "/api/songs?" + requestURLParams.toString());
             request.send();
         }
 

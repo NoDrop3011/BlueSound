@@ -15,6 +15,25 @@ class AlbumModel {
         $this->db = new Database();
     }
 
+    public function selectAllNoPagination() {
+        // Returns array containing id and name of all albums
+
+        $query = "SELECT album_id, judul
+            FROM album
+            ORDER BY judul ASC";
+
+        $this->db->prepare($query);
+        $this->db->execute();
+        $albums = $this->db->fetchAll();
+
+        if (!$albums) {
+            return [];
+        }
+        else {
+            return $albums;
+        }
+    }
+
     public function selectAll($currentPage, 
         $rowPerPage, 
         $searchKey = "", 
