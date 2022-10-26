@@ -3,7 +3,8 @@
 <?php
     if (isset($_SESSION["loggedInUser"]))
     {
-        $greet = "<h3> Hello, ".$_SESSION["loggedInUser"]."</h3>";
+        $userType = $_SESSION["isAdmin"] ? "Admin" : "User";
+        $greet = "<h3> Hello, ".$_SESSION["loggedInUser"]. " (" . $userType .")" ."</h3>";
         echo $greet;
         echo "<br>";
         echo '<form method="post">

@@ -20,6 +20,7 @@ class HomeController extends Controller {
         if (isset($_POST['logout']))
         {
             unset($_SESSION['loggedInUser']);
+            unset($_SESSION['isAdmin']);
             $this->redirectTo("home");
         }
         

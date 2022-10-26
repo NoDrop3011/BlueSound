@@ -95,4 +95,11 @@ class UserModel {
         $this->db->prepare($query);
         $this->db->execute();
     }
+
+    public function isAdmin($username) : bool {
+        $query = "SELECT isAdmin from user where username = '" . $username . "'";
+        $this->db->prepare($query);
+        $fetch = $this->db->fetch();
+        return $fetch["isAdmin"] == 1 ? true : false;
+    }
 }

@@ -34,6 +34,7 @@ class LoginController extends Controller {
         if (!isset($_SESSION['loggedInUser']) && $user->isUserExist($username, $password))
         {
             $_SESSION['loggedInUser'] = $username;
+            $_SESSION['isAdmin'] = $user->isAdmin($username);
             $this->redirectTo("home");
         }
         else
