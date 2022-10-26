@@ -208,7 +208,7 @@ class SongModel {
                 return false;
             }
             else {
-                //unlink("./storage/" . $songData["image_path"]);
+                unlink("./storage/" . $songData["image_path"]);
 
                 $newSongData["image_path"] = "songImage/" . (string)($id) . date("-d-m-Y-") . (string)(rand(1000,9999)) . "." . pathinfo($fileData["image"]["name"], PATHINFO_EXTENSION);
                 move_uploaded_file($fileData["image"]["tmp_name"], "./storage/" . $newSongData["image_path"]);
@@ -217,11 +217,11 @@ class SongModel {
 
         // Upload audio
         if ($fileData["audio"]["size"] != 0) {
-            if ($fileData["audio"]["type"] != "audio/mpeg" && $fileData["audio"]["type"] != "audio/wave") {
+            if ($fileData["audio"]["type"] != "audio/mpeg" && $fileData["audio"]["type"] != "audio/wav") {
                 return false;
             }
             else {
-                //unlink("./storage/" . $songData["audio_path"]);
+                unlink("./storage/" . $songData["audio_path"]);
 
                 $newSongData["audio_path"] = "songAudio/" . (string)($id) . date("-d-m-Y-") . (string)(rand(1000,9999)) . "." . pathinfo($fileData["audio"]["name"], PATHINFO_EXTENSION);
                 move_uploaded_file($fileData["audio"]["tmp_name"], "./storage/" . $newSongData["audio_path"]);
@@ -229,15 +229,6 @@ class SongModel {
                 $audioInfo = shell_exec("ffmpeg -i storage/" . $newSongData["audio_path"] . " 2>&1");
                 preg_match("/Duration: (.{2}):(.{2}):(.{2})/", $audioInfo, $duration);
                 $newSongData["duration"] = (int)$duration[1] * 3600 + (int)$duration[2] * 60 + (int)$duration[3];
-
-                // Update album total duration
-                if ($songData["album_id"]) {
-                    $updateAlbumQuery = "UPDATE album SET total_duration = total_duration - :duration WHERE album_id = :id";
-                    $this->db->prepare($updateAlbumQuery);
-                    $this->db->bind(":duration", $songData["duration"]);
-                    $this->db->bind(":id", $songData["album_id"]);
-                    $this->db->execute();
-                }
             }
         }
 
@@ -253,17 +244,18 @@ class SongModel {
         }
 
         if ($fileData["audio"]["size"] != 0) {
-            $updateSongQuery .= ", audio_path = :audio_path";
+            $updateSongQuery .= ", audio_path = :audio_path, duration = :duration";
         }
 
         $updateSongQuery .= " WHERE song_id = :song_id";
 
         $this->db->prepare($updateSongQuery);
         $this->db->bind(":judul", $newSongData["judul"]);
-        $this->db->bind(":judul", $newSongData["penyanyi"]);
-        $this->db->bind(":judul", $newSongData["tanggal_terbit"]);
-        $this->db->bind(":judul", $newSongData["genre"]);
-        $this->db->bind(":judul", $newSongData["album_id"]);
+        $this->db->bind(":penyanyi", $newSongData["penyanyi"]);
+        $this->db->bind(":tanggal_terbit", $newSongData["tanggal_terbit"]);
+        $this->db->bind(":genre", $newSongData["genre"]);
+        $this->db->bind(":album_id", $newSongData["album_id"]);
+        $this->db->bind(":song_id", $id);
 
         if ($fileData["image"]["size"] != 0) {
             $this->db->bind(":image_path", $newSongData["image_path"]);
@@ -271,15 +263,30 @@ class SongModel {
 
         if ($fileData["audio"]["size"] != 0) {
             $this->db->bind(":audio_path", $newSongData["audio_path"]);
+            $this->db->bind(":duration", $newSongData["duration"]);
         }
 
         $this->db->execute();
 
-        $updateAlbumQuery = "UPDATE album SET total_duration = total_duration + :duration WHERE album_id = :id";
-        $this->db->prepare($updateAlbumQuery);
-        $this->db->bind(":duration", $newSongData["duration"]);
-        $this->db->bind(":id", $newSongData["album_id"]);
-        $this->db->execute();
+        // Update album total duration
+        if ($songData["album_id"] != $newSongData["album_id"] || $fileData["audio"]["size"] != 0) {
+            $updateAlbumQuery = "UPDATE album SET total_duration = total_duration - :duration WHERE album_id = :id";
+            $this->db->prepare($updateAlbumQuery);
+            $this->db->bind(":duration", $songData["duration"]);
+            $this->db->bind(":id", $songData["album_id"]);
+            $this->db->execute();
+
+            $duration = $fileData["audio"]["size"] != 0 ? $newSongData["duration"] : $songData["duration"];
+            $targetAlbum = $songData["album_id"] == $newSongData["album_id"] ? $songData["album_id"] : $newSongData["album_id"];
+
+            if ($targetAlbum != "NULL") {
+                $updateAlbumQuery = "UPDATE album SET total_duration = total_duration + :duration WHERE album_id = :id";
+                $this->db->prepare($updateAlbumQuery);
+                $this->db->bind(":duration", $duration);
+                $this->db->bind(":id", $targetAlbum);
+                $this->db->execute();
+            }
+        }
 
         return true;
     }
@@ -288,9 +295,8 @@ class SongModel {
         // Deletes song with the corresponding id
         // Reduces the duration of album related to song by the song's duration
 
-        $songQuery = "SELECT duration as song_duration, audio_path, song.image_path, song.album_id, total_duration as album_duration
-            FROM song LEFT JOIN album 
-            ON song.album_id = album.album_id
+        $songQuery = "SELECT duration as duration, audio_path, image_path, album_id
+            FROM song
             WHERE song_id = :id";
 
         $this->db->prepare($songQuery);
@@ -312,11 +318,11 @@ class SongModel {
 
         if ($songData["album_id"]) {
             $updateQuery = "UPDATE album
-                SET total_duration = :total_duration
+                SET total_duration = total_duration - :duration
                 WHERE album_id = :id";
 
             $this->db->prepare($updateQuery);
-            $this->db->bind(":total_duration", $songData["album_duration"] - $songData["song_duration"]);
+            $this->db->bind(":duration", $songData["duration"]);
             $this->db->bind(":id", $songData["album_id"]);
             $this->db->execute();
         }

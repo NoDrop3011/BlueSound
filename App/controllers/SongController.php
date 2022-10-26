@@ -43,7 +43,7 @@ class SongController extends Controller {
         
         $songModel->updateSong($songId, $_POST, $_FILES);
 
-        $this->redirectTo("/song/" . (string)$songId);
+        $this->redirectTo("/songs/" . (string)$songId);
     }
 
     public function deleteSong(int $songId) {
