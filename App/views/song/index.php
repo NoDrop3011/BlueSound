@@ -12,7 +12,7 @@
             echo "<h1>Search: " . $_GET["searchkey"] . "</h1>";
         }
         else {
-            echo "<h1>Albums</h1>";
+            echo "<h1>Songs</h1>";
         }
     ?>
 
@@ -59,7 +59,7 @@
                 </div>
             </form>
         </div>
-        <div id="album-list"></div>
+        <div id="song-list"></div>
         <div id="pagination"></div>
     </div>
     
@@ -72,24 +72,24 @@
                     console.log(request.responseText);
                     let response = JSON.parse(request.responseText);
 
-                    // Albums list
-                    albumListHTML = "";
+                    // Songs list
+                    songListHTML = "";
 
                     if (response.data.length > 0) {
-                        response.data.forEach(album => {
-                            albumListHTML += "<a href='/index.php/albums/" + album.album_id + "'><div>"; 
-                            albumListHTML += "<span>" + album.judul + "</span>"
-                            albumListHTML += "<span>" + album.penyanyi + "</span>"
-                            albumListHTML += "<span>" + album.tahun_terbit + "</span>"
-                            albumListHTML += "<span>" + album.genre + "</span>"
-                            albumListHTML += "</div></a>";
+                        response.data.forEach(song => {
+                            songListHTML += "<a href='/index.php/songs/" + song.song_id + "'><div>"; 
+                            songListHTML += "<span>" + song.judul + "</span>"
+                            songListHTML += "<span>" + song.penyanyi + "</span>"
+                            songListHTML += "<span>" + song.tahun_terbit + "</span>"
+                            songListHTML += "<span>" + song.genre + "</span>"
+                            songListHTML += "</div></a>";
                         });
                     }
                     else {
-                        albumListHTML = "<h2>No Albums Found</h2>"
+                        songListHTML = "<h2>No Songs Found</h2>"
                     }
 
-                    document.getElementById("album-list").innerHTML = albumListHTML;
+                    document.getElementById("song-list").innerHTML = songListHTML;
 
                     // Pagination links
                     let paginationHTML = "";
@@ -153,7 +153,7 @@
                 genre: genre
             });
 
-            request.open("GET", "/index.php/api/albums?" + requestURLParams.toString());
+            request.open("GET", "/index.php/api/songs?" + requestURLParams.toString());
             request.send();
         }
 
