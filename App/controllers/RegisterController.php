@@ -45,5 +45,31 @@ class RegisterController extends Controller {
         }
 
     }   
+
+    public function checkUsername() {
+        $username = $_GET["Username"];
+        $user = new UserModel();
+        if($user->isUsernameExist($username))
+        {
+            echo "NOT AVAILABLE";
+        }
+        else
+        {
+            echo "OK";
+        }
+    }
+
+    public function checkEmail() {
+        $email = $_GET["Email"];
+        $user = new UserModel();
+        if($user->isEmailExist($email))
+        {
+            echo "NOT AVAILABLE";
+        }
+        else
+        {
+            echo "OK";
+        }
+    }
 }
 ?>
