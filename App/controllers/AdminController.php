@@ -11,12 +11,12 @@ use App\core\UserModel;
 class AdminController extends Controller {
 
     public function showUsersPage() {
-        // GET /users
+        // GET /index.php/users
         
         // Shows users page
         // Admin only
 
-        $isAdmin = true;
+        $isAdmin = isset($_SESSION["isAdmin"]) ? $_SESSION["isAdmin"] : false;
         if (!$isAdmin) {
             $this->defaultRedirect();
         }
@@ -26,13 +26,13 @@ class AdminController extends Controller {
     }
 
     public function getPaginatedUserData() {
-        // GET /api/users
+        // GET /index.php/api/users
         // URL parameters: page (int, current page)
 
         // Returns JSON containing data (username and email of user) and totalPages
         // Admin only
 
-        $isAdmin = true;
+        $isAdmin = isset($_SESSION["isAdmin"]) ? $_SESSION["isAdmin"] : false;
         if (!$isAdmin) {
             http_response_code(404);
             die();

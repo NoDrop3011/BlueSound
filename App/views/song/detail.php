@@ -6,13 +6,13 @@ Title: <?php echo $data["song"]["judul_lagu"]?>
 <br>
 Part of <a href="/albums/<?php echo $data["song"]["album_id"]?>"><?php echo $data["song"]["judul_album"]?></a>
 <br>
-<?php echo $data["song"]["penyanyi"]?>
+Artist: <?php echo $data["song"]["penyanyi"]?>
 <br>
-<?php echo $data["song"]["tanggal_terbit"]?>
+Release Date: <?php echo $data["song"]["tanggal_terbit"]?>
 <br>
-<?php echo $data["song"]["genre"]?>
+Genre: <?php echo $data["song"]["genre"]?>
 <br>
-<?php echo $data["song"]["duration"]?>s
+Duration: <?php echo $data["song"]["duration"]?>s
 <br>
 <audio controls>
     <source src="/storage/<?php echo $data["song"]["audio_path"]?>">

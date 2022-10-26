@@ -22,8 +22,7 @@ class SongController extends Controller {
 
         if (!$song) $this->defaultRedirect();
 
-        $isAdmin = true;
-
+        $isAdmin = isset($_SESSION["isAdmin"]) ? $_SESSION["isAdmin"] : false;
         if ($isAdmin) {
             $albums = (new AlbumModel())->selectAllNoPagination();
             $this->view("admin/songDetail", [
@@ -46,7 +45,7 @@ class SongController extends Controller {
         // Updates a song with id songId
         // Admin only
 
-        $isAdmin = true;
+        $isAdmin = isset($_SESSION["isAdmin"]) ? $_SESSION["isAdmin"] : false;
         if (!$isAdmin) {
             http_response_code(403);
         }
@@ -67,7 +66,7 @@ class SongController extends Controller {
         // Deletes a song with id songId
         // Admin only
 
-        $isAdmin = true;
+        $isAdmin = isset($_SESSION["isAdmin"]) ? $_SESSION["isAdmin"] : false;
         if (!$isAdmin) {
             http_response_code(403);
             die();
