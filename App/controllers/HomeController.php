@@ -27,6 +27,10 @@ class HomeController extends Controller {
         {
             $this->redirectTo('login');
         }
+        else if (isset($_POST['register']))
+        {
+            $this->redirectTo("register");
+        }
     }
 }
 

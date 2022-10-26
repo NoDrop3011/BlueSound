@@ -57,6 +57,23 @@ class UserModel {
         $this->db->prepare($query);
         $this->db->execute();
         $totalRows = $this->db->rowCount();
-        return $totalRows >= 1;
+        return $totalRows > 0;
+    }
+
+    public function isEmailOrUsernameExist($email, $username) : bool
+    {
+        $query = "SELECT * FROM user where username = '". $username . "' or email = '".$email."'";
+        $this->db->prepare($query);
+        $this->db->execute();
+        $totalRows = $this->db->rowCount();
+        return $totalRows > 0;
+    }
+
+    public function addUser($email, $password, $username) : void {
+        $query = "INSERT INTO user 
+        (email, password, username, isAdmin) 
+        VALUES ('".$email."','".$password."','".$username."', FALSE)";
+        $this->db->prepare($query);
+        $this->db->execute();
     }
 }
