@@ -26,9 +26,6 @@ class RegisterController extends Controller {
 
     public function registerSubmit() {
         // POST
-        // TODO:
-        // AJAX not implemented
-        // password hash not implemented
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = $_POST['password'];
@@ -37,6 +34,7 @@ class RegisterController extends Controller {
         {
             $user->addUser($email, $password, $username);
             $_SESSION["loggedInUser"] = $username;
+            $_SESSION["isAdmin"] = false;
             $this->redirectTo("home");
         }
         else
