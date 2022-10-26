@@ -20,45 +20,6 @@ class AlbumController extends Controller {
         $this->view("album/detail", [
         ]);
     }
-
-    public function showAlbumDetail(int $albumId) {
-        // GET /album/<albumId>
-        // Shows the album detail page of album with id albumId
-
-        $album = (new AlbumModel())->selectById($albumId);
-
-        $dur = shell_exec("ffmpeg -i storage/".$album["audio_path"]." 2>&1");
-        preg_match("/Duration: (.{2}):(.{2}):(.{2})/", $dur, $duration);
-        var_dump($duration);
-
-        if (!$album) $this->defaultRedirect();
-        
-        $this->view("album/detail", [
-            "album" => $album
-        ]);
-    }
-
-    public function showAlbums() {
-        // GET /index.php/albums
-        // URL parameters: searchkey (string, search input by user)
-
-        // Shows search result of albums based on search key
-
-        $genres = (new AlbumModel())->getAllGenres();
-        if (!$genres) $genres = [];
-
-        if (isset($_GET["searchkey"])) {
-            $this->view("album/index", [
-                "searchkey" => $_GET["searchkey"],
-                "genres" => $genres
-            ]);
-        }
-        else {
-            $this->view("album/index", [
-                "genres" => $genres
-            ]);
-        }
-    }
     
     public function getPaginatedAlbumData() {
         // GET /index.php/api/albums
@@ -105,6 +66,80 @@ class AlbumController extends Controller {
         echo json_encode($albums);
     }
 
+    // Create album from database
+    public function createAlbum() {
+        $data["album_id"] = $_POST["album_id"];
+        $data["judul"] = $_POST["judul"];
+        $data["penyanyi"] = $_POST["penyanyi"];
+        $data["total_duration"] = $_POST["total_duration"];
+        $data["image_path"] = $_POST["image_path"];
+        $data["tanggal_terbit"] = $_POST["tanggal_terbit"];
+        $data["genre"] = $_POST["genre"];
+
+        $albumModel = new AlbumModel();
+        $albumModel-> addAlbumToList($data);
+
+        $this->defaultRedirect();
+    }
+
+    // Delete album from database
+    public function deleteAlbum(){
+        $albumModel = new AlbumModel();
+        $albumModel->deleteAlbumFromList($_POST["album_id"]);
+
+        $this->defaultRedirect();
+    }
+
+    // Update album from database
+    public function updateAlbum(){
+        $data["album_id"] = $_POST["album_id"];
+        $data["judul"] = $_POST["judul"];
+        $data["penyanyi"] = $_POST["penyanyi"];
+        $data["total_duration"] = $_POST["total_duration"];
+        $data["image_path"] = $_POST["image_path"];
+        $data["tanggal_terbit"] = $_POST["tanggal_terbit"];
+        $data["genre"] = $_POST["genre"];
+
+        $albumModel = new AlbumModel();
+        $albumModel->updateAlbumFromList($data);
+
+        $this->defaultRedirect();
+    }
+
+    public function showAlbumDetail(int $albumId) {
+        // GET /album/<albumId>
+        // Shows the album detail page of album with id albumId
+
+        $album = (new AlbumModel())->selectById($albumId);
+
+        if (!$album) $this->defaultRedirect();
+        
+        $this->view("album/detail", [
+            "album" => $album
+        ]);
+    }
+
+    public function showAlbums(){
+        // GeT /index.php/albums
+        // URL parameters: searchkey (string, search input by user), 
+        // base (string (all | title | artist | year), search base)
+        // Shows search result of albums based on searchkey and base
+
+        $genres = (new AlbumModel())->getAllGenres();
+        if (!$genres) $genres = [];
+        
+        if (isset($_GET["searchkey"])) {
+            $this->view("album/index", [
+                "searchkey" => $_GET["searchkey"],
+                "genres" => $genres
+            ]);
+        }
+        else {
+            $this->view("album/index", [
+                "genres" => $genres
+            ]);
+        }
+    }
 }
 
 ?>

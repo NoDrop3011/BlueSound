@@ -190,7 +190,6 @@ class AlbumModel {
         return $this->db->fetch();
     }
 
-
     public function selectJudulAlbumOrderASCById($id) {
         $query = "SELECT judul 
                 FROM " . AlbumModel::$table .  
@@ -242,7 +241,7 @@ class AlbumModel {
         return $this->db->rowCount();
     }
 
-    public function updateAlbum($data) {
+    public function updateAlbumFromList($data) {
         $query = "UPDATE " . AlbumModel::$table . " SET
                     judul = :judul,
                     penyanyi = :penyanyi,
@@ -291,6 +290,5 @@ class AlbumModel {
 
         return $genres;
     }
-
     
 }
