@@ -20,12 +20,13 @@
         <?php endforeach; ?>
     </select>
     <br>
-    Artist: <input type="text" name="penyanyi" value="<?php echo $data["song"]["penyanyi"]?>">
+    Artist: <?php echo $data["song"]["penyanyi"]?>
     <br>
     Release Date: <input type="date" name="tanggal_terbit" value="<?php echo $data["song"]["tanggal_terbit"]?>">
     <br>
     Genre: <input type="text" name="genre" value="<?php echo $data["song"]["genre"]?>">
     <br>
+    Duration: <?php echo $data["song"]["duration"]?>s
     <input type="file" name="image">
     <br>
     <input type="file" name="audio">
@@ -38,10 +39,3 @@
     <input type="text" name="_method" value="DELETE" hidden>
     <button type="submit">Delete</button>
 </form>
-
-<script>
-    audioControl = document.getElementById("audio-control");
-    audioControl.onplay = function() {
-        console.log("i am being played");
-    }
-</script>

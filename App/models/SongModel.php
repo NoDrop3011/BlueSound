@@ -198,7 +198,7 @@ class SongModel {
         if (!$songData) return false;
 
         // Check if required fields are missing
-        if (!isset($newSongData["judul"]) || !isset($newSongData["penyanyi"]) || !isset($newSongData["tanggal_terbit"]) || !isset($newSongData["genre"]) || !isset($newSongData["album_id"])) {
+        if (!isset($newSongData["judul"]) || !isset($newSongData["tanggal_terbit"]) || !isset($newSongData["genre"]) || !isset($newSongData["album_id"])) {
             return false;
         }
 
@@ -234,7 +234,6 @@ class SongModel {
 
         $updateSongQuery = "UPDATE song SET 
             judul = :judul,
-            penyanyi = :penyanyi,
             tanggal_terbit = :tanggal_terbit,
             genre = :genre,
             album_id = :album_id";
@@ -251,7 +250,6 @@ class SongModel {
 
         $this->db->prepare($updateSongQuery);
         $this->db->bind(":judul", $newSongData["judul"]);
-        $this->db->bind(":penyanyi", $newSongData["penyanyi"]);
         $this->db->bind(":tanggal_terbit", $newSongData["tanggal_terbit"]);
         $this->db->bind(":genre", $newSongData["genre"]);
         $this->db->bind(":album_id", $newSongData["album_id"]);
