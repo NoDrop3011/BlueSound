@@ -78,7 +78,6 @@
 
             request.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
-                    console.log(request.responseText);
                     let response = JSON.parse(request.responseText);
 
                     // Songs list
@@ -132,7 +131,7 @@
                             paginationHTML += "<a class='pagination-link' href='javascript:reloadList(" + (page+2) + ")'>" + (page+2) + "</a>";
                             paginationHTML += "<a class='pagination-link' href='javascript:reloadList(" + (page+1) + ")'>Next</a>";
                         }
-                        else if (response.totalPages > 2) {
+                        else if (response.totalPages > 2 || (page == 1 && response.totalPages == 2)) {
                             paginationHTML += "<a class='pagination-link' href='javascript:reloadList(" + (page+1) + ")'>" + (page+1) + "</a>";
                             paginationHTML += "<a class='pagination-link' href='javascript:reloadList(" + (page+1) + ")'>Next</a>";
                         }
