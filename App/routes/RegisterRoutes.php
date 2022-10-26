@@ -14,6 +14,12 @@ class RegisterRoutes extends Routes {
 
         // POST method setup
         $this->post("register", "RegisterController", "registerSubmit");
+
+        // GET
+        $this->get("api/register/checkUsername", "RegisterController", "checkUsername");
+
+        //GET
+        $this->get("api/register/checkEmail", "RegisterController", "checkEmail");
     }
 }
 

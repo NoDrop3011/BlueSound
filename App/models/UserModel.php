@@ -60,6 +60,24 @@ class UserModel {
         return $totalRows > 0;
     }
 
+    public function isUsernameExist($username) : bool 
+    {
+        $query = "SELECT * FROM user where username = '". $username . "'";
+        $this->db->prepare($query);
+        $this->db->execute();
+        $totalRows = $this->db->rowCount();
+        return $totalRows > 0;
+    }
+
+    public function isEmailExist($email) : bool
+    {
+        $query = "SELECT * FROM user where email = '". $email . "'";
+        $this->db->prepare($query);
+        $this->db->execute();
+        $totalRows = $this->db->rowCount();
+        return $totalRows > 0;
+    }
+
     public function isEmailOrUsernameExist($email, $username) : bool
     {
         $query = "SELECT * FROM user where username = '". $username . "' or email = '".$email."'";
