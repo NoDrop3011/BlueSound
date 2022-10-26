@@ -73,17 +73,17 @@ form{
 .email-div{
     position: absolute;
     height: 93.85px;
-    left: 0%;
-    right: 0%;
-    top: calc(93.85px * 2);
+    left: -25%;
+    right: 25%;
+    top: 100px;
 }
 
 .register-password-div{
     position: absolute;
     height: 93.85px;
-    left: 0%;
-    right: 0%;
-    top: calc(93.85px * 3);
+    left: -25%;
+    right: 25%;
+    top: 200px;
 }
 
 .password-div{    
@@ -94,20 +94,20 @@ form{
     top: 120px;
 }
 
-.conf-password-div{    
+.confirm-password-div{    
     position: absolute;
     height: 93.85px;
-    left: 0%;
-    right: 0%;
-    top: calc(93.85px * 4);
+    left: -25%;
+    right: 25%;
+    top: 300px;
 }
 
 .register-submit-form-div{
     position: absolute;
     height: 46.92px;
-    left: 0%;
-    right: 0%;
-    top: 489.55px;  
+    left: -29%;
+    right: 29%;
+    top: 400px;  
 }
 
 .submit-form-div{
@@ -150,7 +150,7 @@ form{
     font-family: inherit;
     font-style: normal;
     font-weight: bolder;
-    font-size: 20px;
+    font-size: 17px;
     line-height: 20px;
     /* or 143% */
 
@@ -178,6 +178,15 @@ label{
     left: -25%;
     right: 25%;
     top: 324px;
+    border: 0.97px solid #D9DADC;
+}
+
+.register-border{
+    position: absolute;
+    height: 1.96px;
+    left: -25%;
+    right: 25%;
+    top: 465px;
     border: 0.97px solid #D9DADC;
 }
 
@@ -226,6 +235,24 @@ label{
     text-align: center;
 }
 
+.register-footer-text{
+    position: absolute;
+    width: 198px;
+    height: 22.48px;
+    left: 3%;
+    top: 470px;
+
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 17.5px;
+    line-height: 23px;
+    /* or 133% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
 .footer-button{
     box-sizing: border-box;
 
@@ -249,6 +276,32 @@ label{
 }
 
 .footer-button:hover{
+    border: 1px solid black;
+}
+
+.register-footer-button{
+    box-sizing: border-box;
+
+    position: absolute;
+    height: 46.9px;
+    left: -25%;
+    right: 25%;
+    top: 530px;
+
+    border: 1px solid #878787;
+    border-radius: 488.8px;
+
+    background-color: white;
+    font-family: inherit;
+    font-size: 13.6864px;
+    line-height: 20px;
+
+    letter-spacing: 1.95px;
+    text-transform: uppercase;
+    color: #6A6A6A;
+}
+
+.register-footer-button:hover{
     border: 1px solid black;
 }
 

@@ -1,6 +1,6 @@
 <?php
-    require_once("./lib/Dependencies.php");
-    dependenciesGenerator([], ["../style/login.css"]);  
+    require_once("./utils/Getter.php");
+    dependenciesGenerator([], ["../style/auth.css"]);  
 ?>
 <h1>BlueSound</h1>
 

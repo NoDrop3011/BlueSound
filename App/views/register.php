@@ -1,4 +1,9 @@
-<h1>Ini register page bang :v</h1>
+<?php
+    require_once("./utils/Getter.php");
+    dependenciesGenerator([], ["../style/auth.css"]);  
+?>
+
+<h1>BlueSound</h1>
 
 <script>
 function checkUnique(str, type) {
@@ -51,26 +56,31 @@ setInterval(validate, 50);
 
 </script>
 
-<form method=POST>
-  <label for="username">Username</label>
-  <br>
-  <input type="text" id="username" name="username" onkeyup="checkUnique(this.value, 'Username') ; validate()"> 
-  <span id="unique_Username"></span>
-  <br>
-  <label for="email">E-mail</label>
-  <br>
-  <input type="text" id="email" name="email" onkeyup="checkUnique(this.value, 'Email') ; validate()">
-  <span id="unique_Email"></span>
-  
-  <br>
-  <label for="password">Password</label>
-  <br>
-  <input type="password" id="password" name="password" onkeyup="validate()">
-  <br>
-  <label for="confirmPassword">Confirm Password</label>
-  <br>
-  <input type="password" id="confirmPassword" name="confirmPassword" onkeyup="validate()">
-  <br>
-  <br>
-  <input type="submit" value="Submit" id="submitButton">
-</form>
+<div class="main-container">
+  <form method=POST>
+    <div class="username-div">
+      <label for="username">Username</label><br>
+      <input type="text" id="input-form" name="username" onkeyup="checkUnique(this.value, 'Username')">
+      <span id="unique_Username"></span>
+    </div>
+    <div class="email-div">
+      <label for="email">Email</label><br>
+      <input type="text" id="input-form" name="email" onkeyup="checkUnique(this.value, 'Email')">
+      <span id="unique_Email"></span>
+    </div>
+    <div class="register-password-div">
+      <label for="password">Password</label><br> 
+      <input type="password" id="input-form" name="password" onkeyup="validate()">
+    </div>
+    <div class="confirm-password-div">
+      <label for="confirmPassword">Confirm Password</label><br> 
+      <input type="password" id="input-form" name="confirmPassword" onkeyup="validate()">
+    </div>
+    <div class="register-submit-form-div">
+      <input type="submit" id="submit-form" value="Register">
+    </div>
+    <div class = "register-border"></div>
+    <p class="register-footer-text">Already on BlueSound?</p>
+    <button type="button" class="register-footer-button" onclick="location.href='/login'">Log in to BlueSound</button>
+  </form>
+</div>
