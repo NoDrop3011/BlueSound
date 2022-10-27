@@ -140,6 +140,37 @@ class AlbumController extends Controller {
             ]);
         }
     }
+
+    public function showAddAlbumPage() {
+        if (isset($_SESSION["loggedInUser"]) && $_SESSION["isAdmin"]) {
+            $this->view("album/addAlbum");
+        }
+        else {
+            $this->defaultRedirect();
+        }
+    }
+
+    public function addAlbum() {
+        // POST /index.php/album/add
+        // Adds album to database
+
+        if (isset($_SESSION["loggedInUser"]) && $_SESSION["isAdmin"]) {
+            $data["judul"] = $_POST["title"];
+            $data["penyanyi"] = $_POST["singer"];
+            $data["total_duration"] = $_POST["total-duration"];
+            $data["image_path"] = "albumImage/".$_POST["image-path"];
+            $data["tanggal_terbit"] = $_POST["release-date"];
+            $data["genre"] = $_POST["genre"];
+
+            $albumModel = new AlbumModel();
+            $albumModel->addAlbumToList($data);
+
+            $this->defaultRedirect();
+        }
+        else {
+            $this->defaultRedirect();
+        }
+    }
 }
 
 ?>

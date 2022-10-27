@@ -14,6 +14,9 @@ class AlbumRoutes extends Routes {
 
         $this->get("albums", "AlbumController", "showAlbums");
         $this->get("api/albums", "AlbumController", "getPaginatedAlbumData");
+
+        $this->get("albums/add", "AlbumController", "showAddAlbumPage");
+        $this->post("albums/add", "AlbumController", "addAlbum");
     }
 }
 
