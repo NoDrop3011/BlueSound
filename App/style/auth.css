@@ -9,7 +9,6 @@
     border-bottom: 0.977597px solid #D9DADC;;
 }
 
-/* main-container -> top + form + footer */
 .main-container{
     position: absolute;
     width: 439.92px;
@@ -33,10 +32,8 @@ h1{
 
     font-style: normal;
     font-weight: normal;
-    /* TODO Ganti jadi calc biar semua sebaris */
     font-size: 14px;
     line-height: 20px;
-    /* or 143% */
 
     display: flex;
     align-items: center;
@@ -139,6 +136,90 @@ form{
     border: 1px solid black;
 }
 
+#username{
+    position: absolute;
+    height: 50.84px;
+    left: 0%;
+    right: 0%;
+    top: 27.37px;
+
+    background: #FFFFFF;
+    box-shadow: inset 0px 0px 0px 0.97px #878787;
+    border-radius: 3.91px;
+    
+    padding: 0 3% 0 3.1%;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 15.6px;
+}
+
+#username:hover{
+    border: 1px solid black;
+}
+
+#email{
+    position: absolute;
+    height: 50.84px;
+    left: 0%;
+    right: 0%;
+    top: 27.37px;
+
+    background: #FFFFFF;
+    box-shadow: inset 0px 0px 0px 0.97px #878787;
+    border-radius: 3.91px;
+    
+    padding: 0 3% 0 3.1%;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 15.6px;
+}
+
+#email:hover{
+    border: 1px solid black;
+}
+
+#password{
+    position: absolute;
+    height: 50.84px;
+    left: 0%;
+    right: 0%;
+    top: 27.37px;
+
+    background: #FFFFFF;
+    box-shadow: inset 0px 0px 0px 0.97px #878787;
+    border-radius: 3.91px;
+    
+    padding: 0 3% 0 3.1%;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 15.6px;
+}
+
+#password:hover{
+    border: 1px solid black;
+}
+
+#confirmPassword{
+    position: absolute;
+    height: 50.84px;
+    left: 0%;
+    right: 0%;
+    top: 27.37px;
+
+    background: #FFFFFF;
+    box-shadow: inset 0px 0px 0px 0.97px #878787;
+    border-radius: 3.91px;
+    
+    padding: 0 3% 0 3.1%;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 15.6px;
+}
+
+#confirmPassword:hover{
+    border: 1px solid black;
+}
+
 #submit-form{
     position: absolute;
     height: 46.92px;
@@ -166,6 +247,20 @@ form{
 
 #submit-form:hover{
     transform: scale(1.05);
+}
+
+#unique_Username{
+    position: absolute;
+    left: 450px;
+    top: 43px;
+    /* right: 25%; */
+}
+
+#unique_Email{
+    position: absolute;
+    left: 450px;
+    top: 34px;
+    /* right: 25%; */
 }
 
 label{

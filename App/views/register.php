@@ -38,14 +38,13 @@ function validate() {
             && confirmPassword.length !== 0;
     if (valid)
     {
-      document.getElementById("submitButton").disabled = false;
-      document.getElementById("submitButton").enabled = true;
+      document.getElementById("submit-form").disabled = false;
+      document.getElementById("submit-form").enabled = true;
     }
     else
     {
-
-      document.getElementById("submitButton").enabled = false;
-      document.getElementById("submitButton").disabled = true;
+      document.getElementById("submit-form").enabled = false;
+      document.getElementById("submit-form").disabled = true;
     }
 }
 
@@ -60,21 +59,21 @@ setInterval(validate, 50);
   <form method=POST>
     <div class="username-div">
       <label for="username">Username</label><br>
-      <input type="text" id="input-form" name="username" onkeyup="checkUnique(this.value, 'Username')">
+      <input type="text" id="username" name="username" onkeyup="checkUnique(this.value, 'Username'); validate()">
       <span id="unique_Username"></span>
     </div>
     <div class="email-div">
       <label for="email">Email</label><br>
-      <input type="text" id="input-form" name="email" onkeyup="checkUnique(this.value, 'Email')">
+      <input type="text" id="email" name="email" onkeyup="checkUnique(this.value, 'Email'); validate()">
       <span id="unique_Email"></span>
     </div>
     <div class="register-password-div">
       <label for="password">Password</label><br> 
-      <input type="password" id="input-form" name="password" onkeyup="validate()">
+      <input type="password" id="password" name="password" onkeyup="validate()">
     </div>
     <div class="confirm-password-div">
       <label for="confirmPassword">Confirm Password</label><br> 
-      <input type="password" id="input-form" name="confirmPassword" onkeyup="validate()">
+      <input type="password" id="confirmPassword" name="confirmPassword" onkeyup="validate()">
     </div>
     <div class="register-submit-form-div">
       <input type="submit" id="submit-form" value="Register">
