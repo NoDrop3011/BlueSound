@@ -8,7 +8,7 @@ require_once "models/AlbumModel.php";
 
 use App\core\Controller;
 use App\core\Database;
-use App\core\AlbumModel;
+use App\models\AlbumModel;
 
 class AlbumController extends Controller {
 

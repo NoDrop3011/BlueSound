@@ -1,10 +1,11 @@
 <?php
 
-namespace App\core;
+namespace App\models;
 
 require_once "core/Database.php";
 
 use App\core\Database;
+use PDO;
 
 class SongModel {
     private Database $db;
@@ -181,9 +182,85 @@ class SongModel {
         return $genres;
     }
 
+    public function createSong($songData, $fileData) {
+        // Creates a new song based on songData and fileData
+
+        // Check if required fields are missing
+        if (!isset($songData["judul"]) || !isset($songData["penyanyi"]) 
+            || !isset($songData["tanggal_terbit"]) || !isset($songData["genre"]) 
+            || !isset($songData["album_id"]) || !isset($fileData["audio"]) 
+            || !isset($fileData["image"])) {
+            return false;
+        }
+
+        if ($fileData["image"]["size"] == 0 || $fileData["audio"]["size"] == 0) {
+            return false;
+        }
+
+        if ($fileData["image"]["type"] != "image/jpeg" && $fileData["audio"]["type"] != "image/png") {
+            return false;
+        }
+
+        // Create row in database
+        $createQuery = "INSERT INTO song (judul, penyanyi, tanggal_terbit, genre, album_id, duration, image_path, audio_path)
+            VALUES (:judul, :penyanyi, :tanggal_terbit, :genre, :album_id, 0, 'x', 'x')";
+
+        $this->db->prepare($createQuery);
+        $this->db->bind(":judul", $songData["judul"]);
+        $this->db->bind(":penyanyi", $songData["penyanyi"]);
+        $this->db->bind(":tanggal_terbit", $songData["tanggal_terbit"]);
+        $this->db->bind(":genre", $songData["genre"]);
+        if ($songData["album_id"] == "NULL") {
+            $this->db->bind(":album_id", NULL);
+        }
+        else {
+            $this->db->bind(":album_id", $songData["album_id"]);
+        }
+        $this->db->execute();
+
+        $id = $this->db->lastInsertId();
+        if (!$id) return false;
+
+        // Upload image
+        $songData["image_path"] = "songImage/" . (string)($id) . date("-d-m-Y-") . (string)(rand(1000,9999)) . "." . pathinfo($fileData["image"]["name"], PATHINFO_EXTENSION);
+        move_uploaded_file($fileData["image"]["tmp_name"], "./storage/" . $songData["image_path"]);
+
+        // Upload audio
+        $songData["audio_path"] = "songAudio/" . (string)($id) . date("-d-m-Y-") . (string)(rand(1000,9999)) . "." . pathinfo($fileData["audio"]["name"], PATHINFO_EXTENSION);
+        move_uploaded_file($fileData["audio"]["tmp_name"], "./storage/" . $songData["audio_path"]);
+        
+        $audioInfo = shell_exec("ffmpeg -i storage/" . $songData["audio_path"] . " 2>&1");
+        preg_match("/Duration: (.{2}):(.{2}):(.{2})/", $audioInfo, $duration);
+        $songData["duration"] = (int)$duration[1] * 3600 + (int)$duration[2] * 60 + (int)$duration[3];
+
+        // Update path and duration
+        $updateQuery = "UPDATE song SET 
+            image_path = :image_path,
+            audio_path = :audio_path,
+            duration = :duration
+            WHERE song_id = :id";
+        $this->db->prepare($updateQuery);
+        $this->db->bind(":image_path", $songData["image_path"]);
+        $this->db->bind(":audio_path", $songData["audio_path"]);
+        $this->db->bind(":duration", $songData["duration"]);
+        $this->db->bind(":id", $id);
+        $this->db->execute();
+
+        // Update album total duration
+        if ($songData["album_id"] != "NULL") {
+            $updateAlbumQuery = "UPDATE album SET total_duration = total_duration + :duration WHERE album_id = :id";
+            $this->db->prepare($updateAlbumQuery);
+            $this->db->bind(":duration", $songData["duration"]);
+            $this->db->bind(":id", $songData["album_id"]);
+            $this->db->execute();
+        }
+
+        return $id;
+    }
+
     public function updateSong($id, $newSongData, $fileData) {
         // Updates song with the corresponding id
-        // Changes the duration of albun related to song depending on new song duration
+        // Changes the duration of album related to song depending on new song duration
 
         $songQuery = "SELECT duration, audio_path, song.image_path, song.album_id
             FROM song
@@ -252,7 +329,12 @@ class SongModel {
         $this->db->bind(":judul", $newSongData["judul"]);
         $this->db->bind(":tanggal_terbit", $newSongData["tanggal_terbit"]);
         $this->db->bind(":genre", $newSongData["genre"]);
-        $this->db->bind(":album_id", $newSongData["album_id"]);
+        if ($newSongData["album_id"] == "NULL") {
+            $this->db->bind(":album_id", NULL);
+        }
+        else {
+            $this->db->bind(":album_id", $songData["album_id"]);
+        }
         $this->db->bind(":song_id", $id);
 
         if ($fileData["image"]["size"] != 0) {
