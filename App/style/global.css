@@ -461,3 +461,10 @@ header .main-side nav .search .searchinput{
     font-size: 10px;
     letter-spacing: 2px;
 }
+
+.contents {
+    position: absolute;
+    padding: 20px;
+    top: 100px;
+    left: 300px;
+}
