@@ -42,36 +42,6 @@ header {
 	padding: 2px 5px;
 }
 
-#user-logout{
-    font-size: large;
-    width: 100px;
-    height: 100%;
-    border-radius: 27%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background: #121212;
-    color: #ffffff;
-}
-
-#admin-logout{
-    font-size: large;
-    width: 150%;
-    height: 6.5%;
-    margin-top: -808%;
-    margin-left: 50%;
-    border-radius: 28%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background: #121212;
-    color: #ffffff;
-}
-
-
-
 #add-album{
     font-size: x-large;
     width: 150%;
@@ -113,22 +83,12 @@ header {
 	font-size: 1.7rem;
 }
 
-.user-account-bar {
-	background: #121212;
-    padding: 1px 10px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-	color: #ffffff;
-}
-
-.admin-account-bar {
-	background: #121212;
-    height: 6%;
-    width: 9%;
-    padding: 1px 10px;
-    border-radius: 20px;
-    margin: -778px 0px 0px 800px;
+.account-bar {
+	height: 60px;
+    background: #121212;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
 	color: #ffffff;
@@ -282,7 +242,7 @@ button{
 	width: 50%;
 	height: 50%;
 	background: #ffffff;
-    margin: 20px 0px 0px 20px;
+    margin: auto 20px;
 	padding: 3px;
 	display: flex;
 	flex-direction: row;

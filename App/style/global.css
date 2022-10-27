@@ -142,6 +142,10 @@ nav {
 	margin: 2px;
 }
 
+.menu:hover {
+    font-weight: bold;
+}
+
 
 .spotify-logo {
 	margin: 2px;
@@ -161,6 +165,34 @@ header > * {
 	height: 75%;
 	border-radius: 30px;
 	margin: auto 5px;
+}
+
+#header-auth-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-auth-button {
+    font-size: large;
+    width: 100px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #121212;
+    color: #ffffff;
+    padding: 10px;
+    margin: 10px;
+    font-weight: bold;
+    transition: transform .2s;
+}
+
+.header-auth-button:hover {
+    border:rgb(255, 255, 255) solid 3px;
+    transform: scale(1.05);
 }
 
 .search-icon {
