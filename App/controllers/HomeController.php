@@ -13,8 +13,10 @@ class HomeController extends Controller {
         // GET /
         // Shows the home page
         $song = new SongModel();
-        $data = $song->getSongHomePage();
-        $this->view("home");
+        $songs = $song->getSongHomePage();
+        $this->view("home", [
+            "songs" => $songs
+        ]);
     }
 
     public function postCallback() {

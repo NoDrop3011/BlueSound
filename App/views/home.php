@@ -103,4 +103,13 @@
               <input type="submit" value="Register" name="register"/>
               </form>';
     }
+
+    echo $data["songs"][0]["judul"];
+
+    echo "AAAA";
+
+    foreach ($data["songs"] as $song) {
+        echo "<br>";
+        echo $song["judul"];
+    }
 ?>
