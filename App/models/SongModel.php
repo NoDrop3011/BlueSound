@@ -422,4 +422,13 @@ class SongModel {
         $data = $this->db->fetchAll();
         return $data;
     }
+
+    public function getSongByAlbumId($album_id)
+    {
+        $query = "SELECT * FROM song WHERE album_id = :album_id";
+        $this->db->prepare($query);
+        $this->db->bind(":album_id", $album_id);
+        $data = $this->db->fetchAll();
+        return $data;
+    }
 }

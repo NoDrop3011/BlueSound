@@ -5,10 +5,12 @@ namespace App\controllers;
 require_once "core/Controller.php";
 require_once "core/Database.php";
 require_once "models/AlbumModel.php";
+require_once "models/SongModel.php";
 
 use App\core\Controller;
 use App\core\Database;
 use App\models\AlbumModel;
+use App\models\SongModel;
 
 class AlbumController extends Controller {
 
@@ -111,11 +113,13 @@ class AlbumController extends Controller {
         // Shows the album detail page of album with id albumId
 
         $album = (new AlbumModel())->selectById($albumId);
+        $songs = (new SongModel())->getSongByAlbumId($albumId);
 
         if (!$album) $this->defaultRedirect();
         
         $this->view("album/detail", [
-            "album" => $album
+            "album" => $album,
+            "songs" => $songs
         ]);
     }
 
