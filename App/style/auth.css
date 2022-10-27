@@ -9,7 +9,6 @@
     border-bottom: 0.977597px solid #D9DADC;;
 }
 
-/* main-container -> top + form + footer */
 .main-container{
     position: absolute;
     width: 439.92px;
@@ -33,10 +32,8 @@ h1{
 
     font-style: normal;
     font-weight: normal;
-    /* TODO Ganti jadi calc biar semua sebaris */
     font-size: 14px;
     line-height: 20px;
-    /* or 143% */
 
     display: flex;
     align-items: center;
@@ -208,6 +205,20 @@ form{
 
 #submit-form:hover{
     transform: scale(1.05);
+}
+
+#unique_Username{
+    position: absolute;
+    left: 450px;
+    top: 43px;
+    /* right: 25%; */
+}
+
+#unique_Email{
+    position: absolute;
+    left: 450px;
+    top: 34px;
+    /* right: 25%; */
 }
 
 label{
