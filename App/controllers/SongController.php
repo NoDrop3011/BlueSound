@@ -7,9 +7,9 @@ require_once "models/SongModel.php";
 require_once "models/AlbumModel.php";
 require_once "utils/Debug.php";
 
-use App\core\AlbumModel;
 use App\core\Controller;
-use App\core\SongModel;
+use App\models\SongModel;
+use App\models\AlbumModel;
 
 class SongController extends Controller {
 
@@ -35,8 +35,48 @@ class SongController extends Controller {
                 "song" => $song
             ]);
         }
-        
-        
+    }
+
+    public function showSongCreationForm() {
+        // GET /songs/create
+
+        // Shows the song creation form
+        // Admin only
+
+        $isAdmin = isset($_SESSION["isAdmin"]) ? $_SESSION["isAdmin"] : false;
+        if (!$isAdmin) {
+            $this->defaultRedirect();
+        }
+        else {
+            $albums = (new AlbumModel())->selectAllNoPagination();
+            $this->view("song/create", [
+                "albums" => $albums
+            ]);
+        }   
+    }
+
+    public function createSong() {
+        // POST /songs
+
+        // Creates a new song
+        // Admin only
+
+        $isAdmin = isset($_SESSION["isAdmin"]) ? $_SESSION["isAdmin"] : false;
+        if (!$isAdmin) {
+            http_response_code(403);
+            die();
+        }
+        else {
+            $id = (new SongModel())->createSong($_POST, $_FILES);
+            if ($id) {
+                $this->redirectTo("/songs/" . (string)$id);
+            }
+            else {
+                http_response_code(400);
+                die();
+            }
+            $this->redirectTo("/songs");
+        }
     }
 
     public function updateSong(int $songId) {
@@ -48,6 +88,7 @@ class SongController extends Controller {
         $isAdmin = isset($_SESSION["isAdmin"]) ? $_SESSION["isAdmin"] : false;
         if (!$isAdmin) {
             http_response_code(403);
+            die();
         }
 
         $songModel = new SongModel();
