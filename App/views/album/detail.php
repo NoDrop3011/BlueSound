@@ -1,19 +1,43 @@
-<h1>Detail of album with id <?php echo $data["album"]["album_id"]?></h1>
-
-<img src="/storage/<?php echo $data["album"]["image_path"]?>">
-<br>
-Title: <?php echo $data["album"]["judul_lagu"]?>
-<br>
-Part of <a href="/albums/<?php echo $data["album"]["album_id"]?>"><?php echo $data["song"]["judul_album"]?></a>
-<br>
-<?php echo $data["album"]["penyanyi"]?>
-<br>
-<?php echo $data["album"]["tanggal_terbit"]?>
-<br>
-<?php echo $data["album"]["genre"]?>
-<br>
-<?php echo $data["album"]["duration"]?>s
-<br>
-<audio controls>
-    <source src="/storage/<?php echo $data["album"]["audio_path"]?>">
-</audio>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Album</title>
+    <?php
+        require_once("./utils/Getter.php");
+        dependenciesGenerator([], ["../style/albumDetail.css"]);  
+    ?>
+</head>
+<body>
+    <h1><?php echo $data["album"]["judul"]?></h1>
+    <div>
+        <img src="/storage/<?php echo $data["album"]["image_path"]?>" width="250" height="250">
+    </div>
+    <br>
+    <p>Artist : <?php echo $data["album"]["penyanyi"]?></p>
+    <p>Release Date : <?php echo $data["album"]["tanggal_terbit"]?></p>
+    <p>Genre : <?php echo $data["album"]["genre"]?></p>
+    <p>Total Duration : 
+        <?php 
+            $minutes = intdiv($data["album"]["total_duration"], 60);
+            $seconds = $data["album"]["total_duration"] % 60;
+            echo $minutes . " m " . $seconds . " s";
+        ?>
+    </p>
+    <p>
+        List of songs: 
+        <br>
+        <?php
+            $no = 1;
+            foreach ($data["songs"] as $song) {
+                echo $no . ". ";
+                echo $song["judul"];
+                echo "<br>";
+                $no++;
+            }
+        ?>
+    </p>
+    <br>
+</body>

@@ -197,7 +197,7 @@ class AlbumModel {
     public function selectById($id) {
         $query = "SELECT * 
                 FROM " . AlbumModel::$table . "
-                WHERE album_id = :id
+                WHERE album_id = :album_id
                 ORDER BY judul ASC";
 
         $this->db->prepare($query);
