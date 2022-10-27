@@ -1,3 +1,4 @@
+
 <h1>Detail of song with id <?php echo $data["song"]["song_id"]?></h1>
 
 <img src="/storage/<?php echo $data["song"]["image_path"]?>">

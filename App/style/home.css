@@ -134,6 +134,69 @@ header {
 	color: #ffffff;
 }
 
+.song-filter-form {
+    display: flex;
+    flex-direction: row;
+    justify-content:end;
+}
+
+.song-filter-form > *{
+    margin: 7px;
+}
+
+.song-filter-genre, .song-filter-year {
+    border: 0;
+    border-radius: 15px;
+    padding: 3px 6px;
+}
+
+.song-lists {
+    width: 320%;
+    text-align: center;
+    margin-left: 80px;
+    color: white;
+    font-size: 1em;
+}
+
+.song-field, .song-instance {
+    margin: 3px;
+    padding: 5px;
+}
+
+.song-instance:hover {
+    background: #2a2a2a;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.song-field > th {
+    border-bottom: 1px solid #535353;
+}
+
+.song-field > th, .song-instance > td {
+    padding: 2px;
+}
+
+.song-field > th:nth-child(1), .song-instance > td:nth-child(1) {
+    flex: 1;
+}
+
+.song-field > th:nth-child(2), .song-instance > td:nth-child(2) {
+    flex: 4;
+}
+
+.song-field > th:nth-child(3), .song-instance > td:nth-child(3) {
+    flex: 3;
+}
+
+.song-field > th:nth-child(4), .song-instance > td:nth-child(4) {
+    flex: 3;
+}
+
+.song-field > th:nth-child(5), .song-instance > td:nth-child(5) {
+    flex: 3;
+}
+
 .containersong h2{
     
     padding-top: 10px;
@@ -145,6 +208,18 @@ header {
     align-items: center;
     
     color: #FFFFFF;
+}
+
+.pagination-buttons {
+    margin: 5px auto 20px;
+}
+
+.before-button, .after-button {
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    margin: auto 5px;
+    background: #3b408f;
 }
 
 .queryrows {
