@@ -376,3 +376,44 @@ label{
     top: 45%;
 }
 
+#input-form-username{
+    position: absolute;
+    height: 50.84px;
+    left: 0%;
+    right: 0%;
+    top: 27.37px;
+
+    background: #FFFFFF;
+    box-shadow: inset 0px 0px 0px 0.97px #878787;
+    border-radius: 3.91px;
+    
+    padding: 0 3% 0 3.1%;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 15.6px;
+}
+
+#input-form-username:hover{
+    border: 1px solid black;
+}
+
+#input-form-email{
+    position: absolute;
+    height: 50.84px;
+    left: 0%;
+    right: 0%;
+    top: 27.37px;
+
+    background: #FFFFFF;
+    box-shadow: inset 0px 0px 0px 0.97px #878787;
+    border-radius: 3.91px;
+    
+    padding: 0 3% 0 3.1%;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 15.6px;
+}
+
+#input-form-email:hover{
+    border: 1px solid black;
+}

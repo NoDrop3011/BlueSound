@@ -36,8 +36,34 @@
                   && unique_Email.length !== 0
                   && password.length !== 0
                   && confirmPassword.length !== 0;
+          if (unique_Username)
+          {
+            if (unique_Username !== "OK")
+            {
+              document.getElementById('input-form-username').style.borderColor = "red";
+            }
+            else
+            {
+              document.getElementById('input-form-username').style.borderColor = "black";
+            }
+          }
+
+          if (unique_Email)
+          {
+            if (unique_Email !== "OK")
+            {
+              document.getElementById('input-form-email').style.borderColor = "red";
+            }
+            else
+            {
+              document.getElementById('input-form-email').style.borderColor = "black";
+            }
+          }
+
           if (valid)
           {
+            document.getElementById("input-form-username").style.borderColor = 'black';
+            document.getElementById('input-form-email').style.borderColor = "black";
             document.getElementById("submit-form").disabled = false;
             document.getElementById("submit-form").enabled = true;
           }
@@ -71,7 +97,7 @@
       <div class="username-div">
         <label for="username">Username</label>
         <br>
-        <input type="text" id="input-form" name="username" onkeyup="checkUnique(this.value, 'Username') ; validate()"> 
+        <input type="text" id="input-form-username" name="username" onkeyup="checkUnique(this.value, 'Username') ; validate()"> 
         <span id="unique_Username"></span>
       </div>
 
@@ -80,7 +106,7 @@
       <div class="email-div">
         <label for="email">E-mail</label>
         <br>
-        <input type="text" id="input-form" name="email" onkeyup="checkUnique(this.value, 'Email') ; validate()">
+        <input type="text" id="input-form-email" name="email" onkeyup="checkUnique(this.value, 'Email') ; validate()">
         <span id="unique_Email"></span>
       </div>
 
