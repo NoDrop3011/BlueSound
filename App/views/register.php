@@ -59,9 +59,7 @@
         dependenciesGenerator([], ["../style/auth.css"]);  
     ?>
   </head>
-  <header>
-    <h1>Register</h1>
-  </header>
+  <h1>Register to BlueSound</h1>
 
   <body>
     <div class="main-container">
@@ -101,11 +99,12 @@
       </div>
       
       <br>
-      
       <div class="register-submit-form-div">
-        <input type="submit" value="Submit" id="submit-form">
+        <input type="submit" value="Register" id="submit-form">
       </div>
-
+      <div class = "register-border"></div>
+      <p class="register-footer-text">Already on BlueSound?</p>
+      <button type="button" class="register-footer-button" onclick="location.href='/login'">Log in to BlueSound</button>
       </form>
     </div>
   </body>
