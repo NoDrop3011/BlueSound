@@ -148,6 +148,13 @@ class SongController extends Controller {
 
         echo json_encode($songs);
     }
+
+    public function getSongHomePageData()
+    {
+        $song = new SongModel();
+        $data = $song->getSongHomePage();
+        echo json_encode($data);   
+    }
 }
 
 ?>

@@ -327,4 +327,17 @@ class SongModel {
         
         return true;
     }
+
+    public function getSongHomePage()
+    {
+        //10 alphabetically ordered and most recent songs
+        $query = "SELECT judul, tanggal_terbit, penyanyi, genre, image_path
+            FROM song
+            ORDER BY judul ASC, tanggal_terbit DESC
+            LIMIT 10";
+
+        $this->db->prepare($query);
+        $data = $this->db->fetchAll();
+        return $data;
+    }
 }
