@@ -39,14 +39,14 @@
                     <input class="search-input" type="search" name="song-search" id="song-search" placeholder="What do you want to listen to?">
                 </form>
             </div>
-            <div class="account-bar center">
+            <div class="user-account-bar center">
                 <!-- <img src="../storage/propertiesImage/search-black.svg" alt="account-icon"> -->';
             echo "<h2>";
             echo $greet;
             echo "</h2>";
             echo "</div>";
             echo '<form method="post">
-                <input type="submit" id="Logout" value="Logout" name="logout"/>
+                <input type="submit" id="user-logout" value="Logout" name="logout"/>
                 </form>';
             echo "</header>";
             echo "<br>";
@@ -81,14 +81,14 @@
                     <input type="submit" id="add-song" value="Add Song" name="add-song"/>
                 </form>
             </div>
-            <div class="account-bar center">
+            <div class="admin-account-bar center">
                 <!-- <img src="../storage/propertiesImage/search-black.svg" alt="account-icon"> -->';
             echo "<h2>";
             echo $greet;
             echo "</h2>";
             echo "</div>";
             echo '<form method="post">
-                <input type="submit" id="Logout" value="Logout" name="logout"/>
+                <input type="submit" id="admin-logout" value="Logout" name="logout"/>
                 </form>';
             echo "</header>";
             echo "<br>";

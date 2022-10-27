@@ -204,7 +204,22 @@ header .main-side nav .search .searchinput{
     
 }
 
-#Logout{
+#user-logout{
+    font-size: large;
+    width: 150%;
+    height: 8.4%;
+    margin-top: -167%;
+    margin-left: -230%;
+    border-radius: 27%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #121212;
+    color: #ffffff;
+}
+
+#admin-logout{
     font-size: large;
     width: 150%;
     height: 8.4%;
@@ -263,7 +278,19 @@ header .main-side nav .search .searchinput{
 	font-size: 1.7rem;
 }
 
-.account-bar {
+.user-account-bar {
+	background: #121212;
+    height: 6%;
+    width: 9%;
+    padding: 1px 10px;
+    border-radius: 20px;
+    margin: 33px 0px 0px 180px;
+    display: flex;
+    flex-direction: column;
+	color: #ffffff;
+}
+
+.admin-account-bar {
 	background: #121212;
     height: 6%;
     width: 9%;
