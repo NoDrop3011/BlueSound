@@ -60,7 +60,7 @@
     ?>
   </head>
   <header>
-    <h1>Register</h1>
+    <h1>BlueSound</h1>
   </header>
 
   <body>
@@ -103,7 +103,7 @@
       <br>
       
       <div class="register-submit-form-div">
-        <input type="submit" value="Submit" id="submit-form">
+        <input type="submit" value="Register" id="submit-form">
       </div>
 
       </form>
