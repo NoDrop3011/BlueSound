@@ -12,6 +12,7 @@
     <br>
     Album: 
     <select name="album_id">
+        <option value="NULL">-</option>
         <?php foreach ($data["albums"] as $album): ?>
             <option value="<?php echo $album["album_id"]?> "
                 <?php if ($data["song"]["album_id"] == $album["album_id"]) echo "selected" ?>>

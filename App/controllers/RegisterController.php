@@ -9,7 +9,7 @@ require_once "models/UserModel.php";
 require_once "utils/Debug.php";
 
 use App\core\Controller;
-use App\core\UserModel;
+use App\models\UserModel;
 
 class RegisterController extends Controller {
     public function showRegisterPage() {

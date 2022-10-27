@@ -14,7 +14,7 @@
         $greet = "<h3> Hello, ".$_SESSION["loggedInUser"]. " (" . $userType .")" ."</h3>";
         if($userType=="User"){
             echo '<nav>
-                    <a class="spotify-anchor center">
+                    <a class="blueSound-anchor center">
                         <h1>BlueSound</h1>
                     </a>
                     <div class="menu-options">
@@ -39,21 +39,21 @@
                     <input class="search-input" type="search" name="song-search" id="song-search" placeholder="What do you want to listen to?">
                 </form>
             </div>
-            <div class="account-bar center">
+            <div class="user-account-bar center">
                 <!-- <img src="../storage/propertiesImage/search-black.svg" alt="account-icon"> -->';
             echo "<h2>";
             echo $greet;
             echo "</h2>";
             echo "</div>";
             echo '<form method="post">
-                <input type="submit" value="Logout" name="logout"/>
+                <input type="submit" id="user-logout" value="Logout" name="logout"/>
                 </form>';
             echo "</header>";
             echo "<br>";
         }else{
             echo '<nav>
-                    <a class="spotify-anchor center">
-                        <h1>BlueSound Admin</h1>
+                    <a class="blueSound-anchor center">
+                        <h1>BlueSound</h1>
                     </a>
                     <div class="menu-options">
                         <a class="menu">
@@ -71,20 +71,24 @@
                     </div>
                 </nav>';
             echo '<header class="flex-justify-between">
-            <div class="search-bar">
-                <img class="search-icon center" src="../storage/propertiesImage/search.svg" alt="search-icon">
-                <form class="search-input-form center">
-                    <input class="search-input" type="search" name="song-search" id="song-search" placeholder="What do you want to listen to?">
+            <div class="add-album-button">
+                <form method="post">
+                    <input type="submit" id="add-album" value="Add Album" name="add-album"/>
                 </form>
             </div>
-            <div class="account-bar center">
+            <div class="add-song-button">
+                <form method="post">
+                    <input type="submit" id="add-song" value="Add Song" name="add-song"/>
+                </form>
+            </div>
+            <div class="admin-account-bar center">
                 <!-- <img src="../storage/propertiesImage/search-black.svg" alt="account-icon"> -->';
             echo "<h2>";
             echo $greet;
             echo "</h2>";
             echo "</div>";
             echo '<form method="post">
-                <input type="submit" value="Logout" name="logout"/>
+                <input type="submit" id="admin-logout" value="Logout" name="logout"/>
                 </form>';
             echo "</header>";
             echo "<br>";
@@ -98,5 +102,14 @@
         echo '<form method="post">
               <input type="submit" value="Register" name="register"/>
               </form>';
+    }
+
+    echo $data["songs"][0]["judul"];
+
+    echo "AAAA";
+
+    foreach ($data["songs"] as $song) {
+        echo "<br>";
+        echo $song["judul"];
     }
 ?>

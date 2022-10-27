@@ -6,7 +6,7 @@ require_once "core/Controller.php";
 require_once "models/UserModel.php";
 
 use App\core\Controller;
-use App\core\UserModel;
+use App\models\UserModel;
 
 class AdminController extends Controller {
 

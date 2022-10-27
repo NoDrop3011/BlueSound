@@ -1,6 +1,6 @@
 <?php
 
-namespace App\core;
+namespace App\models;
 
 require_once "core/Database.php";
 

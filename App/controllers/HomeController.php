@@ -3,15 +3,20 @@
 namespace App\controllers;
 
 require_once "core/Controller.php";
+require_once "models/SongModel.php";
 
 use App\core\Controller;
+use App\models\SongModel;
 
 class HomeController extends Controller {
     public function showHomePage() {
         // GET /
         // Shows the home page
-        
-        $this->view("home");
+        $song = new SongModel();
+        $songs = $song->getSongHomePage();
+        $this->view("home", [
+            "songs" => $songs
+        ]);
     }
 
     public function postCallback() {

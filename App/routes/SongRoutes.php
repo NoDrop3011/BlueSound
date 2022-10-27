@@ -15,6 +15,9 @@ class SongRoutes extends Routes {
         $this->get("songs", "SongController", "showSongs");
         $this->get("api/songs", "SongController", "getPaginatedSongData");
         $this->get("api/songs/home", "SongController", "getSongHomePageData");
+
+        $this->get("songs/create", "SongController", "showSongCreationForm");
+        $this->post("songs", "SongController", "createSong");
     }
 }
 
