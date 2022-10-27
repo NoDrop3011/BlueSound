@@ -14,7 +14,7 @@
         $greet = "<h3> Hello, ".$_SESSION["loggedInUser"]. " (" . $userType .")" ."</h3>";
         if($userType=="User"){
             echo '<nav>
-                    <a class="spotify-anchor center">
+                    <a class="blueSound-anchor center">
                         <h1>BlueSound</h1>
                     </a>
                     <div class="menu-options">
@@ -46,13 +46,13 @@
             echo "</h2>";
             echo "</div>";
             echo '<form method="post">
-                <input type="submit" value="Logout" name="logout"/>
+                <input type="submit" id="Logout" value="Logout" name="logout"/>
                 </form>';
             echo "</header>";
             echo "<br>";
         }else{
             echo '<nav>
-                    <a class="spotify-anchor center">
+                    <a class="blueSound-anchor center">
                         <h1>BlueSound Admin</h1>
                     </a>
                     <div class="menu-options">
