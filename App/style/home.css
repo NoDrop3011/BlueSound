@@ -208,15 +208,45 @@ header .main-side nav .search .searchinput{
     font-size: large;
     width: 150%;
     height: 8.4%;
-    margin-top: -167%;
-    margin-left: -180%;
-    border-radius: 27%;
+    margin-top: -159%;
+    margin-left: -290%;
+    border-radius: 28%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     background: #121212;
     color: #ffffff;
+}
+
+#add-album{
+    font-size: x-large;
+    width: 150%;
+    height: 8.4%;
+    margin-top: -75%;
+    margin-left: 250%;
+    border-radius: 19%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #ebebebcc;
+    color: #121212ce;
+}
+
+#add-song{
+    font-size: x-large;
+    width: 150%;
+    height: 8.4%;
+    margin-top: -86%;
+    margin-left: 330%;
+    border-radius: 19%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: #ebebebd5;
+    color: #121212e6;
 }
 
 .blueSound-anchor {
@@ -236,8 +266,10 @@ header .main-side nav .search .searchinput{
 .account-bar {
 	background: #121212;
     height: 6%;
-    width: 12%;
-    margin: 33px 0px 0px 180px;
+    width: 9%;
+    padding: 1px 10px;
+    border-radius: 20px;
+    margin: 37px 0px 0px 510px;
     display: flex;
     flex-direction: column;
 	color: #ffffff;
