@@ -72,44 +72,41 @@ docker-compose up
 <!-- TODO: -->
 **Server-side**
 
-Login : 13520110, 13520xxx
+Login : 13520110, 13520126, 13520137
+Register : 13520110, 13520126, 13520137
 
-Register : 13520110, 13520xxx
+Home : 13520110, 13520126, 13520137
 
-Home : 13520110
+Daftar Album :13520110, 13520126, 13520137
 
-Daftar Album :
+Search, Sort, Filter :13520110, 13520126, 13520137
 
-Search, Sort, Filter :
+Detail Lagu :13520110, 13520126, 13520137
 
-Detail Lagu :
+Detail Album :13520110, 13520126, 13520137
 
-Detail Album :
+Tambah Album/Lagu : 13520110, 13520126, 13520137
 
-Tambah Album/Lagu : 13520110
+Daftar User :13520110, 13520126, 13520137
 
-Daftar User :
-
-Database : 13520110
+Database : 13520110, 13520126, 13520137
 
 <br>
 
 **Client-side**
 
-Login : 13520110, 13520xxx
+Login : 13520110, 13520126, 13520137
+Register : 13520110, 13520126, 13520137
 
-Register : 13520110, 13520xxx
+Home :13520110, 13520126, 13520137
 
-Home : 13520110
+Daftar Album :13520110, 13520126, 13520137
+Search, Sort, Filter :13520110, 13520126, 13520137
 
-Daftar Album :
+Detail Lagu :13520110, 13520126, 13520137
 
-Search, Sort, Filter :
+Detail Album :13520110, 13520126, 13520137
 
-Detail Lagu :
+Tambah Album/Lagu : 13520110, 13520126, 13520137
 
-Detail Album :
-
-Tambah Album/Lagu : 13520110
-
-Daftar User :
+Daftar User :13520110, 13520126, 13520137
