@@ -47,9 +47,26 @@ docker-compose up
 <br>
 
 ## Screenshot 
-<!-- TODO: -->
-
+<img src="img/Home.png">
 <br>
+<img src="img/Login.png">
+<br>
+<img src="img/Register.png">
+<br>
+<img src="img/listAlbum.png">
+<br>
+<img src="img/addAlbum.png">
+<br>
+<img src="img/addSong.png">
+<br>
+<img src="img/searchsort.png">
+<br>
+<img src="img/songdetail.png">
+<br>
+<img src="img/userList.png">
+<br>
+
+
 
 ## Pembagian Tugas
 <!-- TODO: -->
