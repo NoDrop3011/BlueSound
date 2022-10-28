@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
+    <?php 
+          require_once "components/dependenciesIncluder.php";
+          addHeaderNavDependencies();
+    ?>
     <script>
       function checkUnique(str, type) {
         if (str.length !== 0) {
@@ -80,60 +84,56 @@
         }
       setInterval(validate, 50);
     </script>
-    <?php 
-          require_once "components/dependenciesIncluder.php";
-          addHeaderNavDependencies();
-    ?>
   </head>
-  <h1>Register to BlueSound</h1>
-
   <body>
     <?php require_once "components/headernav.php"; ?>
-    <div class="main-container-register">
-      
-      <form method=POST>
+    <div class="contents">
+      <div class="main-container-register">
+        <h1>Register to BlueSound</h1>
 
-      <div class="username-div">
-        <label for="username" style="color:white">Username</label>
-        <br>
-        <input type="text" id="input-form-username" name="username" onkeyup="checkUnique(this.value, 'Username') ; validate()"> 
-        <span id="unique_Username"></span>
-      </div>
+        <form method=POST>
 
-      <br>
+        <div class="username-div">
+          <label for="username" style="color:white">Username</label>
+          <br>
+          <input type="text" id="input-form-username" name="username" onkeyup="checkUnique(this.value, 'Username') ; validate()"> 
+          <span id="unique_Username"></span>
+        </div>
 
-      <div class="email-div">
-        <label for="email" style="color:white">E-mail</label>
         <br>
-        <input type="text" id="input-form-email" name="email" onkeyup="checkUnique(this.value, 'Email') ; validate()">
-        <span id="unique_Email"></span>
-      </div>
 
-      <br>
-      <div class="register-password-div">
-        <label for="password" style="color:white">Password</label>
-        <br>
-        <input type="password" id="input-form-password" name="password" onkeyup="validate()">
-      </div>
+        <div class="email-div">
+          <label for="email" style="color:white">E-mail</label>
+          <br>
+          <input type="text" id="input-form-email" name="email" onkeyup="checkUnique(this.value, 'Email') ; validate()">
+          <span id="unique_Email"></span>
+        </div>
 
-      <br>
-      
-      <div class="confirm-password-div">
-        <label for="confirmPassword"style="color:white">Confirm Password</label>
         <br>
-        <input type="password" id="input-form-confirmPassword" name="confirmPassword" onkeyup="validate()">
+        <div class="register-password-div">
+          <label for="password" style="color:white">Password</label>
+          <br>
+          <input type="password" id="input-form-password" name="password" onkeyup="validate()">
+        </div>
+
         <br>
+        
+        <div class="confirm-password-div">
+          <label for="confirmPassword"style="color:white">Confirm Password</label>
+          <br>
+          <input type="password" id="input-form-confirmPassword" name="confirmPassword" onkeyup="validate()">
+          <br>
+        </div>
+        
+        <br>
+        <div class="register-submit-form-div">
+          <input type="submit" value="Register" id="submit-form">
+        </div>
+        <div class = "register-border"></div>
+        <p class="register-footer-text">Already on BlueSound?</p>
+        <button type="button" class="register-footer-button" onclick="location.href='/login'">Log in to BlueSound</button>
+        </form>
       </div>
-      
-      <br>
-      <div class="register-submit-form-div">
-        <input type="submit" value="Register" id="submit-form">
-      </div>
-      <div class = "register-border"></div>
-      <p class="register-footer-text">Already on BlueSound?</p>
-      <button type="button" class="register-footer-button" onclick="location.href='/login'">Log in to BlueSound</button>
-      </form>
     </div>
   </body>
-
 </html>

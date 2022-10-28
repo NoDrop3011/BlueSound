@@ -560,19 +560,11 @@ header .main-side nav .search .searchinput{
 }
 
 .username-div{
-    position: absolute;
     height: 93.85px;
-    left: -25%;
-    right: 25%;
-    top: 0px;
 }
 
 #input-form{
-    position: absolute;
     height: 50.84px;
-    left: 0%;
-    right: 0%;
-    top: 27.37px;
 
     background: #FFFFFF;
     box-shadow: inset 0px 0px 0px 0.97px #878787;
@@ -584,11 +576,8 @@ header .main-side nav .search .searchinput{
     font-size: 15.6px;
 }
 #input-form-username{
-    position: absolute;
     height: 50.84px;
-    left: 0%;
-    right: 0%;
-    top: 27.37px;
+    width: 100%;
 
     background: #FFFFFF;
     box-shadow: inset 0px 0px 0px 0.97px #878787;
@@ -603,37 +592,21 @@ header .main-side nav .search .searchinput{
 }
 
 .password-div{    
-    position: absolute;
     height: 93.85px;
-    left: -25%;
-    right: 25%;
-    top: 120px;
 }
 
 .submit-form-div{
-    position: absolute;
-    height: 46.92px;
-    left: -29%;
-    right: 29%;
-    top: 240px;    
+    height: 46.92px;   
 }
 
 .border{
-    position: absolute;
     height: 1.96px;
-    left: -25%;
-    right: 25%;
-    top: 324px;
     border: 0.97px solid #D9DADC;
 }
 
 #submit-form{
-    position: absolute;
     height: 46.92px;
-    left: 40%;
-    right: 0%;
-    top: 0px;
-    width: 121px;
+    padding: 10px;
 
     font-family: inherit;
     font-style: normal;
@@ -657,19 +630,12 @@ header .main-side nav .search .searchinput{
 }
 
 .email-div{
-    position: absolute;
     height: 93.85px;
-    left: -25%;
-    right: 25%;
-    top: 100px;
 }
 
 #input-form-email, #input-form-password{
-    position: absolute;
     height: 50.84px;
-    left: 0%;
-    right: 0%;
-    top: 27.37px;
+    width: 100%;
 
     background: #FFFFFF;
     box-shadow: inset 0px 0px 0px 0.97px #878787;
@@ -684,19 +650,12 @@ header .main-side nav .search .searchinput{
 }
 
 .confirm-password-div{    
-    position: absolute;
     height: 93.85px;
-    left: -25%;
-    right: 25%;
-    top: 300px;
 }
 
 #input-form-confirmPassword{
-    position: absolute;
     height: 50.84px;
-    left: 0%;
-    right: 0%;
-    top: 27.37px;
+    width: 100%;
 
     background: #FFFFFF;
     box-shadow: inset 0px 0px 0px 0.97px #878787;
@@ -711,17 +670,10 @@ header .main-side nav .search .searchinput{
 }
 
 .register-password-div{
-    position: absolute;
     height: 93.85px;
-    left: -25%;
-    right: 25%;
-    top: 200px;
 }
 
 #unique_Username{
-    position: absolute;
-    left: 450px;
-    top: 43px;
     color:white;
     /* right: 25%; */
 }
@@ -735,49 +687,34 @@ header .main-side nav .search .searchinput{
 }
 
 .register-submit-form-div{
-    position: absolute;
-    height: 46.92px;
-    left: -29%;
-    right: 29%;
-    top: 400px;  
+    height: 46.92px; 
+    display: flex;
+    justify-content: center;
 }
 
 .register-border{
-    position: absolute;
     height: 1.96px;
-    left: -25%;
-    right: 25%;
-    top: 465px;
     border: 0.97px solid #D9DADC;
+    margin: 20px 0;
 }
 
 .register-footer-text{
-    position: absolute;
-    width: 198px;
-    height: 22.48px;
-    left: 3%;
-    top: 470px;
+    width: 100%;
+    margin: 20px auto;
 
     font-style: normal;
     font-weight: bolder;
     font-size: 17.5px;
     line-height: 23px;
     /* or 133% */
-
-    display: flex;
-    align-items: center;
     text-align: center;
     color:white
 }
 
 .register-footer-button{
     box-sizing: border-box;
-
-    position: absolute;
     height: 46.9px;
-    left: -25%;
-    right: 25%;
-    top: 500px;
+    width: 100%;
 
     border: 1px solid black;
     border-radius: 488.8px;
@@ -795,4 +732,14 @@ header .main-side nav .search .searchinput{
 .register-footer-button:hover{
     border: 1px solid black;
     transform: scale(1.05);
+}
+
+.main-container-register {
+    width: 500px;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    margin: 10px;
 }
