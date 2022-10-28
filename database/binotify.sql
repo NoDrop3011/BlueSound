@@ -40,7 +40,7 @@ CREATE TABLE `album` (
 
 LOCK TABLES `album` WRITE;
 /*!40000 ALTER TABLE `album` DISABLE KEYS */;
-INSERT INTO `album` VALUES (1,'Heavy Rotation','JKT48',2518,'/heavy_rotation/album.jpg','2013-02-16','J-pop'),(2,'Kereta Kencan','HiVi!',2110,'/kereta_kencan/album.jpg','2017-02-23','Pop'),(3,'RIVER','JKT48',1052,'/river/album.jpg','2013-05-11','J-pop');
+INSERT INTO `album` VALUES (1,'Heavy Rotation','JKT48',2518,'albumImage/Album1.jpeg','2013-02-16','J-pop'),(2,'Kereta Kencan','HiVi!',2110,'albumImage/Album2.jpeg','2017-02-23','Pop'),(3,'RIVER','JKT48',1052,'albumImage/Album3.jpg','2013-05-11','J-pop');
 /*!40000 ALTER TABLE `album` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,7 +100,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'admin@example.com','$2y$10$gRR/aqMGqZyShnmZQZzEuONwldRKINqVJMGUrG6zrfu1/qLqqK9pu','admin',1),(2,'user@example.com','$2y$10$tjHu3PykRoHvvFaDRmn43e09I.oo/k/kY5EaTSClBNJBCdJ/A5ZiG','user',1);
+INSERT INTO `user` VALUES (1,'admin@example.com','$2y$10$gRR/aqMGqZyShnmZQZzEuONwldRKINqVJMGUrG6zrfu1/qLqqK9pu','admin',1),(2,'user@example.com','$2y$10$tjHu3PykRoHvvFaDRmn43e09I.oo/k/kY5EaTSClBNJBCdJ/A5ZiG','user',0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -113,4 +113,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-26 21:31:37
+-- Dump completed on 2022-10-28  8:45:25

@@ -40,6 +40,10 @@ docker-compose up
 
 5. Setelah itu aplikasi akan berjalan di localhost anda pada port 8008. Buka browser dan masukkan `localhost:8008` pada url. Aplikasi juga bisa dapat dijalankan pada device lain dengan mengganti localhost dengan IP Address tempat menjalankan server. Sebagai contoh, IP address tempat menjalankan aplikasi adalah `192.168.1.101`. Maka, aplikasi dapat dibuka di device lain seperti handphone ataupun komputer lainnya dengan memasukkan `192.168.1.101:8008` pada url browser device tersebut.
 
+6. Login ke dalam aplikasi. Akun admin dapat digunakan dengan memasukkan username : admin, password : admin. Terdapat juga akun user dengan username : user, password : user.
+
+7. Register untuk membuat akun user baru.
+
 <br>
 
 ## Screenshot 
