@@ -5,11 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User List</title>
+    <?php 
+        require_once "./views/components/dependenciesIncluder.php";
+        addHeaderNavDependencies();
+        dependenciesGenerator([], ["../style/list.css"]);
+    ?>
 </head>
 <body>
-    <h1>User List</h1>
+    <?php 
+        require_once "./views/components/headernav.php";
+    ?>
 
     <div class="contents">
+        <h1 id="user-title">User List</h1>
         <table>
             <thead>
                 <tr>

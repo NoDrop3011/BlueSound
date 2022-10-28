@@ -69,3 +69,26 @@ h1 {
 .active {
     border: 2px solid white;
 }
+
+table {
+    align-self: center;
+    margin-bottom: 50px;
+    color: white;
+    font-size: 20px;
+}
+
+th {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+table, th, td {
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 10px 30px;
+}
+
+#user-title {
+    align-self: center;
+}
