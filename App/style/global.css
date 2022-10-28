@@ -500,3 +500,145 @@ header .main-side nav .search .searchinput{
     top: 100px;
     left: 300px;
 }
+
+.footer-button{
+    box-sizing: border-box;
+
+    position: absolute;
+    height: 46.9px;
+    left: -25%;
+    right: 25%;
+    top: 390px;
+
+    border: 1px solid black;
+    border-radius: 488.8px;
+
+    background-color: white;
+    font-family: inherit;
+    font-size: 13.6864px;
+    line-height: 20px;
+
+    letter-spacing: 1.95px;
+    text-transform: uppercase;
+    color: black;
+}
+
+.border{
+    position: absolute;
+    height: 1.96px;
+    left: -25%;
+    right: 25%;
+    top: 324px;
+    border: 0.97px solid #D9DADC;
+}
+
+.footer-text{
+    position: absolute;
+    width: 198px;
+    height: 22.48px;
+    left: 7%;
+    top: 330px;
+
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 16px;
+    color: white;
+    line-height: 23px;
+    /* or 133% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-button:hover{
+    transform: scale(1.05);
+    border: 1px solid gray;
+}
+
+.main-container{
+    position: absolute;
+    width: 439.92px;
+    height: 809.45px;
+    left: 43.6%;
+    top: 140.77px;
+}
+
+.username-div{
+    position: absolute;
+    height: 93.85px;
+    left: -25%;
+    right: 25%;
+    top: 0px;
+}
+
+#input-form{
+    position: absolute;
+    height: 50.84px;
+    left: 0%;
+    right: 0%;
+    top: 27.37px;
+
+    background: #FFFFFF;
+    box-shadow: inset 0px 0px 0px 0.97px #878787;
+    border-radius: 3.91px;
+    
+    padding: 0 3% 0 3.1%;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 15.6px;
+}
+
+.password-div{    
+    position: absolute;
+    height: 93.85px;
+    left: -25%;
+    right: 25%;
+    top: 120px;
+}
+
+.submit-form-div{
+    position: absolute;
+    height: 46.92px;
+    left: -29%;
+    right: 29%;
+    top: 240px;    
+}
+
+.border{
+    position: absolute;
+    height: 1.96px;
+    left: -25%;
+    right: 25%;
+    top: 324px;
+    border: 0.97px solid #D9DADC;
+}
+
+#submit-form{
+    position: absolute;
+    height: 46.92px;
+    left: 40%;
+    right: 0%;
+    top: 0px;
+    width: 121px;
+
+    font-family: inherit;
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 17px;
+    line-height: 20px;
+    /* or 143% */
+
+    align-items: center;
+    text-align: center;
+    letter-spacing: 1.955px;
+    text-transform: uppercase;
+
+    border-radius: 488.8px;
+    border: none;
+    background: rgba(30, 198, 228, 0.845)
+}
+
+#submit-form:hover{
+    transform: scale(1.05);
+}

@@ -1,17 +1,18 @@
-<?php
-    require_once("./utils/Getter.php");
-    dependenciesGenerator([], ["../style/auth.css"]);  
+<?php 
+      require_once "components/dependenciesIncluder.php";
+      addHeaderNavDependencies();
 ?>
-<h1>BlueSound</h1>
 
+<!-- <h1>BlueSound</h1> -->
+<?php require_once "components/headernav.php"; ?>
 <div class="main-container">
   <form method=POST>
     <div class="username-div">
-      <label for="username">Username</label><br>
+      <label for="username" style="color:white">Username</label><br>
       <input type="text" id="input-form" name="username">
     </div>
     <div class="password-div">
-      <label for="password">Password</label>
+      <label for="password" style="color:white">Password</label>
       <br> 
       <input type="password" id="input-form" name="password"> <br>
       <br>
