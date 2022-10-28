@@ -556,6 +556,13 @@ header .main-side nav .search .searchinput{
     border: 1px solid gray;
 }
 
+.main-container-register{
+    position: absolute;
+    width: 439.92px;
+    height: 809.45px;
+    left: 43.6%;
+    top: 100.77px;
+}
 .main-container{
     position: absolute;
     width: 439.92px;
@@ -582,6 +589,24 @@ header .main-side nav .search .searchinput{
     background: #FFFFFF;
     box-shadow: inset 0px 0px 0px 0.97px #878787;
     border-radius: 3.91px;
+    
+    padding: 0 3% 0 3.1%;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 15.6px;
+}
+#input-form-username{
+    position: absolute;
+    height: 50.84px;
+    left: 0%;
+    right: 0%;
+    top: 27.37px;
+
+    background: #FFFFFF;
+    box-shadow: inset 0px 0px 0px 0.97px #878787;
+    border-radius: 3.91px;
+    border-style:solid;
+    border-width:1.5px;
     
     padding: 0 3% 0 3.1%;
     font-family: inherit;
@@ -640,5 +665,146 @@ header .main-side nav .search .searchinput{
 }
 
 #submit-form:hover{
+    transform: scale(1.05);
+}
+
+.email-div{
+    position: absolute;
+    height: 93.85px;
+    left: -25%;
+    right: 25%;
+    top: 100px;
+}
+
+#input-form-email, #input-form-password{
+    position: absolute;
+    height: 50.84px;
+    left: 0%;
+    right: 0%;
+    top: 27.37px;
+
+    background: #FFFFFF;
+    box-shadow: inset 0px 0px 0px 0.97px #878787;
+    border-radius: 3.91px;
+    border-style:solid;
+    border-width:1.5px;
+    
+    padding: 0 3% 0 3.1%;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 15.6px;
+}
+
+.confirm-password-div{    
+    position: absolute;
+    height: 93.85px;
+    left: -25%;
+    right: 25%;
+    top: 300px;
+}
+
+#input-form-confirmPassword{
+    position: absolute;
+    height: 50.84px;
+    left: 0%;
+    right: 0%;
+    top: 27.37px;
+
+    background: #FFFFFF;
+    box-shadow: inset 0px 0px 0px 0.97px #878787;
+    border-radius: 3.91px;
+    border-style:solid;
+    border-width:1.5px;
+    
+    padding: 0 3% 0 3.1%;
+    font-family: inherit;
+    font-weight: normal;
+    font-size: 15.6px;
+}
+
+.register-password-div{
+    position: absolute;
+    height: 93.85px;
+    left: -25%;
+    right: 25%;
+    top: 200px;
+}
+
+#unique_Username{
+    position: absolute;
+    left: 450px;
+    top: 43px;
+    color:white;
+    /* right: 25%; */
+}
+
+#unique_Email{
+    position: absolute;
+    left: 450px;
+    top: 34px;
+    color:white;
+    /* right: 25%; */
+}
+
+.register-submit-form-div{
+    position: absolute;
+    height: 46.92px;
+    left: -29%;
+    right: 29%;
+    top: 400px;  
+}
+
+.register-border{
+    position: absolute;
+    height: 1.96px;
+    left: -25%;
+    right: 25%;
+    top: 465px;
+    border: 0.97px solid #D9DADC;
+}
+
+.register-footer-text{
+    position: absolute;
+    width: 198px;
+    height: 22.48px;
+    left: 3%;
+    top: 470px;
+
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 17.5px;
+    line-height: 23px;
+    /* or 133% */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color:white
+}
+
+.register-footer-button{
+    box-sizing: border-box;
+
+    position: absolute;
+    height: 46.9px;
+    left: -25%;
+    right: 25%;
+    top: 500px;
+
+    border: 1px solid black;
+    border-radius: 488.8px;
+
+    background-color: white;
+    font-family: inherit;
+    font-size: 13.6864px;
+    line-height: 20px;
+
+    letter-spacing: 1.95px;
+    text-transform: uppercase;
+    color: black;
+}
+
+.register-footer-button:hover{
+    border: 1px solid black;
     transform: scale(1.05);
 }

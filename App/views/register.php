@@ -44,7 +44,7 @@
             }
             else
             {
-              document.getElementById('input-form-username').style.borderColor = "black";
+              document.getElementById('input-form-username').style.borderColor = "LawnGreen";
             }
           }
 
@@ -56,14 +56,14 @@
             }
             else
             {
-              document.getElementById('input-form-email').style.borderColor = "black";
+              document.getElementById('input-form-email').style.borderColor = "LawnGreen";
             }
           }
 
           if (valid)
           {
-            document.getElementById("input-form-username").style.borderColor = 'black';
-            document.getElementById('input-form-email').style.borderColor = "black";
+            document.getElementById("input-form-username").style.borderColor = 'LawnGreen';
+            document.getElementById('input-form-email').style.borderColor = "LawnGreen";
             document.getElementById("submit-form").disabled = false;
             document.getElementById("submit-form").enabled = true;
           }
@@ -80,20 +80,21 @@
         }
       setInterval(validate, 50);
     </script>
-    <?php
-        require_once("./utils/Getter.php");
-        dependenciesGenerator([], ["../style/auth.css"]);  
+    <?php 
+          require_once "components/dependenciesIncluder.php";
+          addHeaderNavDependencies();
     ?>
   </head>
   <h1>Register to BlueSound</h1>
 
   <body>
-    <div class="main-container">
+    <?php require_once "components/headernav.php"; ?>
+    <div class="main-container-register">
       
       <form method=POST>
 
       <div class="username-div">
-        <label for="username">Username</label>
+        <label for="username" style="color:white">Username</label>
         <br>
         <input type="text" id="input-form-username" name="username" onkeyup="checkUnique(this.value, 'Username') ; validate()"> 
         <span id="unique_Username"></span>
@@ -102,7 +103,7 @@
       <br>
 
       <div class="email-div">
-        <label for="email">E-mail</label>
+        <label for="email" style="color:white">E-mail</label>
         <br>
         <input type="text" id="input-form-email" name="email" onkeyup="checkUnique(this.value, 'Email') ; validate()">
         <span id="unique_Email"></span>
@@ -110,7 +111,7 @@
 
       <br>
       <div class="register-password-div">
-        <label for="password">Password</label>
+        <label for="password" style="color:white">Password</label>
         <br>
         <input type="password" id="input-form-password" name="password" onkeyup="validate()">
       </div>
@@ -118,7 +119,7 @@
       <br>
       
       <div class="confirm-password-div">
-        <label for="confirmPassword">Confirm Password</label>
+        <label for="confirmPassword"style="color:white">Confirm Password</label>
         <br>
         <input type="password" id="input-form-confirmPassword" name="confirmPassword" onkeyup="validate()">
         <br>
