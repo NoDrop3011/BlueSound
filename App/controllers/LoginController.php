@@ -42,6 +42,19 @@ class LoginController extends Controller {
             $this->view("login");
         }
     }   
+
+    public function logout() {
+        // POST /logout
+        // Logs out off current account
+
+        if (!isset($_SESSION["loggedInUser"])) {
+            $this->defaultRedirect();
+        }
+        else {
+            session_destroy();
+            $this->redirectTo("/");
+        }
+    }
 }
 
 ?>

@@ -14,6 +14,8 @@ class LoginRoutes extends Routes {
 
         // POST method setup
         $this->post("login", "LoginController", "loginCheck");
+
+        $this->post("logout", "LoginController", "logout");
     }
 }
 
