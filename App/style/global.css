@@ -501,5 +501,6 @@ header .main-side nav .search .searchinput{
     left: 300px;
     width: calc(100% - 300px);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }

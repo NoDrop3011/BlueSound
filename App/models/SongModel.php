@@ -413,7 +413,7 @@ class SongModel {
     public function getSongHomePage()
     {
         //10 alphabetically ordered and most recent songs
-        $query = "SELECT judul, tanggal_terbit, penyanyi, genre, image_path
+        $query = "SELECT song_id, judul, tanggal_terbit, penyanyi, genre, image_path
             FROM song
             ORDER BY judul ASC, tanggal_terbit DESC
             LIMIT 10";
