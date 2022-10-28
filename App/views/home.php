@@ -22,7 +22,8 @@
                 <?php $data["songs"][0]["judul"];
                     foreach ($data["songs"] as $song) {
                         $image = "<img src='/storage/" . $song["image_path"] . "' height= 200px width= 200px>";
-                        echo '<div class=column>';
+                        $column = "<div method=get class='column' action='/songs/" . $song["song_id"] . "'>";
+                        echo $column;
                         echo $image;
                         echo '<div class="font-song">';
                         echo $song["judul"];

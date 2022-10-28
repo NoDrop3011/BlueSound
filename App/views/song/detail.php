@@ -1,28 +1,41 @@
 
-<h1>Detail of song with id <?php echo $data["song"]["song_id"]?></h1>
+<?php 
+    require_once "./views/components/dependenciesIncluder.php";
+    addHeaderNavDependencies();
+?>
+<?php
+    require_once("./utils/Getter.php");
+    dependenciesGenerator([], ["../style/form.css"]);  
+?>
+<?php require_once "./views/components/headernav.php"; ?>
 
-<img src="/storage/<?php echo $data["song"]["image_path"]?>">
-<br>
-Title: <?php echo $data["song"]["judul_lagu"]?>
-<br>
-Part of <a href="/albums/<?php echo $data["song"]["album_id"]?>"><?php echo $data["song"]["judul_album"]?></a>
-<br>
-Artist: <?php echo $data["song"]["penyanyi"]?>
-<br>
-Release Date: <?php echo $data["song"]["tanggal_terbit"]?>
-<br>
-Genre: <?php echo $data["song"]["genre"]?>
-<br>
-Duration: <?php echo $data["song"]["duration"]?>s
-<br>
-<?php if (isset($_SESSION["loggedInUser"]) || !isset($_COOKIE["played"]) || (int) $_COOKIE["played"] < 3): ?>
-    <audio id="audio-control" controls>
-        <source src="/storage/<?php echo $data["song"]["audio_path"]?>">
-    </audio>
-<?php else: ?>
-    <h2>You have reached the maximum songs allowed to be played today. Log in or come back tommorow!</h2>
-<?php endif; ?>
+<div class="contents">
+    <div class="main-container">
+    <h1>Detail of song with id <?php echo $data["song"]["song_id"]?></h1>
 
+    <img src="/storage/<?php echo $data["song"]["image_path"]?>">
+    <br>
+    Title: <?php echo $data["song"]["judul_lagu"]?>
+    <br>
+    Part of <a href="/albums/<?php echo $data["song"]["album_id"]?>"><?php echo $data["song"]["judul_album"]?></a>
+    <br>
+    Artist: <?php echo $data["song"]["penyanyi"]?>
+    <br>
+    Release Date: <?php echo $data["song"]["tanggal_terbit"]?>
+    <br>
+    Genre: <?php echo $data["song"]["genre"]?>
+    <br>
+    Duration: <?php echo $data["song"]["duration"]?>s
+    <br>
+    <?php if (isset($_SESSION["loggedInUser"]) || !isset($_COOKIE["played"]) || (int) $_COOKIE["played"] < 3): ?>
+        <audio id="audio-control" controls>
+            <source src="/storage/<?php echo $data["song"]["audio_path"]?>">
+        </audio>
+    <?php else: ?>
+        <h2>You have reached the maximum songs allowed to be played today. Log in or come back tommorow!</h2>
+    <?php endif; ?>
+    </div>
+</div>
 <?php if (!isset($_SESSION["loggedInUser"])): ?>
     <input type="text" id="played" value="no" hidden>
 
