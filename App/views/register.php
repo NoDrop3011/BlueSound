@@ -8,6 +8,7 @@
     <?php 
           require_once "components/dependenciesIncluder.php";
           addHeaderNavDependencies();
+          dependenciesGenerator([], ["../style/auth.css"]);
     ?>
     <script>
       function checkUnique(str, type) {
@@ -88,50 +89,50 @@
   <body>
     <?php require_once "components/headernav.php"; ?>
     <div class="contents">
-      <div class="main-container-register">
+      <div class="main-container">
         <h1>Register to BlueSound</h1>
 
         <form method=POST>
 
-        <div class="username-div">
+        <div class="input-field-div">
           <label for="username" style="color:white">Username</label>
           <br>
-          <input type="text" id="input-form-username" name="username" onkeyup="checkUnique(this.value, 'Username') ; validate()"> 
+          <input type="text" class="input-field" id="input-form-username" name="username" onkeyup="checkUnique(this.value, 'Username') ; validate()"> 
           <span id="unique_Username"></span>
         </div>
 
         <br>
 
-        <div class="email-div">
+        <div class="input-field-div">
           <label for="email" style="color:white">E-mail</label>
           <br>
-          <input type="text" id="input-form-email" name="email" onkeyup="checkUnique(this.value, 'Email') ; validate()">
+          <input type="text" class="input-field" id="input-form-email" name="email" onkeyup="checkUnique(this.value, 'Email') ; validate()">
           <span id="unique_Email"></span>
         </div>
 
         <br>
-        <div class="register-password-div">
+        <div class="input-field-div">
           <label for="password" style="color:white">Password</label>
           <br>
-          <input type="password" id="input-form-password" name="password" onkeyup="validate()">
+          <input type="password" class="input-field" id="input-form-password" name="password" onkeyup="validate()">
         </div>
 
         <br>
         
-        <div class="confirm-password-div">
+        <div class="input-field-div">
           <label for="confirmPassword"style="color:white">Confirm Password</label>
           <br>
-          <input type="password" id="input-form-confirmPassword" name="confirmPassword" onkeyup="validate()">
+          <input type="password" class="input-field" id="input-form-confirmPassword" name="confirmPassword" onkeyup="validate()">
           <br>
         </div>
         
         <br>
-        <div class="register-submit-form-div">
+        <div class="submit-form-div">
           <input type="submit" value="Register" id="submit-form">
         </div>
-        <div class = "register-border"></div>
-        <p class="register-footer-text">Already on BlueSound?</p>
-        <button type="button" class="register-footer-button" onclick="location.href='/login'">Log in to BlueSound</button>
+        <div class = "border"></div>
+        <p class="footer-text">Already on BlueSound?</p>
+        <button type="button" class="footer-button" onclick="location.href='/login'">Log in to BlueSound</button>
         </form>
       </div>
     </div>
