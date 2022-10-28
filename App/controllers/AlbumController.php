@@ -73,7 +73,7 @@ class AlbumController extends Controller {
         $data["album_id"] = $_POST["album_id"];
         $data["judul"] = $_POST["judul"];
         $data["penyanyi"] = $_POST["penyanyi"];
-        $data["total_duration"] = $_POST["total_duration"];
+        $data["total_duration"] = 0;
         $data["image_path"] = $_POST["image_path"];
         $data["tanggal_terbit"] = $_POST["tanggal_terbit"];
         $data["genre"] = $_POST["genre"];
@@ -161,7 +161,7 @@ class AlbumController extends Controller {
         if (isset($_SESSION["loggedInUser"]) && $_SESSION["isAdmin"]) {
             $data["judul"] = $_POST["title"];
             $data["penyanyi"] = $_POST["singer"];
-            $data["total_duration"] = $_POST["total-duration"];
+            $data["total_duration"] = 0;
             $data["image_path"] = "albumImage/".$_POST["image-path"];
             $data["tanggal_terbit"] = $_POST["release-date"];
             $data["genre"] = $_POST["genre"];
