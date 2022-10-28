@@ -157,6 +157,66 @@ header {
     flex-grow: 1;
     justify-content: space-between;
 }
+.details{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding : 9px;
+    font-size: 17px;
+    color: rgb(255, 253, 253);
+    border: 3px solid;
+    border-radius: 13px;
+}
+
+.details-admin{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding : 9px;
+    font-size: 17px;
+    color: rgb(255, 253, 253);
+    border: 3px solid;
+    margin-top: -7px;
+    border-radius: 13px;
+}
+
+.details-admin button{
+    text-align: center;
+    padding : 4px;
+    font-size: 17px;
+    color: black;
+    background-color: white;
+    border: 3px solid;
+    margin-top: 2px;
+    border-radius: 10px;
+}
+
+
+.details-admin select{
+    text-align: center;
+    padding : 4px;
+    
+    color: rgb(20, 20, 20);
+    border: 3px solid;
+    border-radius: 8px;
+}
+
+
+.details-admin input{
+    color : rgb(13, 12, 12);
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 5px;
+    height: 25px;
+    background-color:rgb(255, 253, 253);
+}
+
+.details img{
+    width: 93%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 15px;
+}
 
 /* Create two equal columns that sits next to each other */
 .column {
