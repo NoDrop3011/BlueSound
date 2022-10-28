@@ -24,7 +24,7 @@
     justify-content: center;
 }
 
-.uniqueMessage {
+#unique_Username, #unique_Email {
     color:white;
 }
 
@@ -138,4 +138,8 @@ h1 {
 
 #submit-form:hover{
     transform: scale(1.05);
+}
+
+#span{
+    color:white
 }
