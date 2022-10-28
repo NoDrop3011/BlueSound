@@ -499,6 +499,9 @@ header .main-side nav .search .searchinput{
     padding: 20px;
     top: 100px;
     left: 300px;
+    width: calc(100% - 300px);
+    display: flex;
+    justify-content: center;
 }
 
 .footer-button{
@@ -554,14 +557,6 @@ header .main-side nav .search .searchinput{
 .footer-button:hover{
     transform: scale(1.05);
     border: 1px solid gray;
-}
-
-.main-container{
-    position: absolute;
-    width: 439.92px;
-    height: 809.45px;
-    left: 43.6%;
-    top: 140.77px;
 }
 
 .username-div{

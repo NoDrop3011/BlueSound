@@ -5,6 +5,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Binotify</title>
+    <?php 
+        require_once "./views/components/dependenciesIncluder.php";
+        addHeaderNavDependencies();
+    ?>
+    <?php
+        require_once("./utils/Getter.php");
+        dependenciesGenerator([], ["../style/form.css"]);  
+    ?>
+  </head>
+  <body>
+    <?php require_once "./views/components/headernav.php"; ?>
+    <div class="contents">
+      <div class="main-container">
+        <h1>Add Song</h1>
+        <form method=POST action="/songs" enctype="multipart/form-data">
+        <label for="title">Title</label>
+        <br>
+        <input type="text" id="title" name="judul" onkeyup="validate()"> 
+        <br>
+        <br>
+        <label for="album">Album</label>
+        <br>
+        <select id="album_id" name="album_id" onchange="validate()">
+              <option value="NULL">-</option>
+              <?php foreach ($data["albums"] as $album): ?>
+                  <option value="<?php echo $album["album_id"]?>">
+                      <?php echo $album["judul"]?>
+                  </option>
+              <?php endforeach; ?>
+          </select> 
+        <br>
+        <br>
+        <label for="artist">Artist</label>
+        <br>
+        <input type="text" id="artist" name="penyanyi" onkeyup="validate()"> 
+        <br>
+        <br>
+        <label for="release-date">Release Date</label>
+        <br>
+        <input type="date" id="release-date" name="tanggal_terbit" onchange="validate()"> 
+        <br>
+        <br>
+        <label for="genre">Genre</label>
+        <br>
+        <input type="text" id="genre" name="genre" onkeyup="validate()"> 
+        <br>
+        <br>
+        <label for="image-path">Image</label>
+        <br>
+        <input type="file" id="image-path" name="image" onchange="validate()"> 
+        <br>
+        <br>
+        <label for="audio-path">Audio</label>
+        <br>
+        <input type="file" id="audio-path" name="audio" onchange="validate()"> 
+        <br>
+        <br>
+        <input type="submit" value="Add Song" id="submit-form">
+      </div>
+    </div>
+    
     <script>
       function validate() { 
             title = document.getElementById('title').value; 
@@ -38,60 +99,6 @@
           validate();
         }
     </script>
-    <?php
-        require_once("./utils/Getter.php");
-        dependenciesGenerator([], ["../style/addSong.css"]);  
-    ?>
-  </head>
-  <h1>Add Song</h1>
-
-  <body>
-    <div class="main-container">
-      <form method=POST action="/songs" enctype="multipart/form-data">
-       <label for="title">Title</label>
-       <br>
-       <input type="text" id="title" name="judul" onkeyup="validate()"> 
-       <br>
-       <br>
-       <label for="album">Album</label>
-       <br>
-       <select id="album_id" name="album_id" onchange="validate()">
-            <option value="NULL">-</option>
-            <?php foreach ($data["albums"] as $album): ?>
-                <option value="<?php echo $album["album_id"]?>">
-                    <?php echo $album["judul"]?>
-                </option>
-            <?php endforeach; ?>
-        </select> 
-       <br>
-       <br>
-       <label for="artist">Artist</label>
-       <br>
-       <input type="text" id="artist" name="penyanyi" onkeyup="validate()"> 
-       <br>
-       <br>
-       <label for="release-date">Release Date</label>
-       <br>
-       <input type="date" id="release-date" name="tanggal_terbit" onchange="validate()"> 
-       <br>
-       <br>
-       <label for="genre">Genre</label>
-       <br>
-       <input type="text" id="genre" name="genre" onkeyup="validate()"> 
-       <br>
-       <br>
-       <label for="image-path">Image Path</label>
-       <br>
-       <input type="file" id="image-path" name="image" onchange="validate()"> 
-       <br>
-       <br>
-       <label for="audio-path">Audio Path</label>
-       <br>
-       <input type="file" id="audio-path" name="audio" onchange="validate()"> 
-       <br>
-       <br>
-       <input type="submit" value="Add Song" id="submit-form">
-    </div>
   </body>
 
 </html>

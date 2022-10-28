@@ -48,7 +48,7 @@
             <div class="account-bar center">
                 <h2><?php echo $greet?></h2>
             </div>
-            <form method="post">
+            <form method="post" action="/logout">
                 <input type="submit" class="header-auth-button" value="Logout" name="logout"/>
             </form>
         <?php else: ?>
