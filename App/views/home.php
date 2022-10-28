@@ -13,50 +13,28 @@
 <body>
     <?php require_once "components/headernav.php"; 
         require_once("./utils/getSong.php");
+        dependenciesGenerator([], ["../style/home.css"]);
     ?>
     <div class="contents">
-    <div class="song-filter-form">
-        <select class="song-filter-genre" name="genres" id="genres">
-            <option value="Genre">Genre</option>
-            <option value="Pop">Pop</option>
-            <option value="Rock">Rock</option>
-            <option value="Jazz">Jazz</option>
-            <option value="Metal">Metal</option>
-        </select>
-        <form>
-            <input class="song-filter-year" type="number" name="song-year" id="song-year" placeholder="Song's Created Year">
-        </form>
-    </div>
         <table class="song-lists" id="song-lists">
-            <thead>
-                <tr class="song-field flex-justify-between">
-                    <th>#</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Genres</th>
-                    <th>Year's Created</th>
-                </tr>
-            </thead>
             <tbody id="dynamic-song-container">
-                
+                <div class=row>;
+                <?php $data["songs"][0]["judul"];
+                    foreach ($data["songs"] as $song) {
+                        $image = "<img src='/storage/" . $song["image_path"] . "' height= 200px width= 200px>";
+                        echo '<div class=column>';
+                        echo $image;
+                        echo '<div class="font-song">';
+                        echo $song["judul"];
+                        echo " - ";
+                        echo $song['penyanyi'];
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                ?>
+                </div>;
             </tbody>
-            <div class="pagination-buttons center">
-                <button class="before-button" id="before-button">
-                    <img src="./storage/propertiesImage/arrow-up-white.svg">
-                </button>
-                <button class="after-button" id="after-button">
-                    <img src="./storage/propertiesImage/arrow-down-white.svg">
-                </button>
-            </div>
         </table> 
-        <div class="pagination-buttons center">
-            <button class="before-button" id="before-button">
-                <img src="./storage/propertiesImage/arrow-up-white.svg">
-            </button>
-            <button class="after-button" id="after-button">
-                <img src="./storage/propertiesImage/arrow-down-white.svg">
-            </button>
-        </div>
     </div>
 </body>
 </html>
