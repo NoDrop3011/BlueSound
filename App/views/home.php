@@ -29,6 +29,10 @@
                         echo $song["judul"];
                         echo " - ";
                         echo $song['penyanyi'];
+                        echo "<br>";
+                        echo $song["tahun_terbit"];
+                        echo " - ";
+                        echo $song['genre'];
                         echo '</div>';
                         echo '</div>';
                         echo '</a>';
