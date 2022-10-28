@@ -81,6 +81,7 @@ header {
     height: 100px;
     display: flex;
 	padding: 2px 5px;
+    z-index: 1;
 }
 
 #add-album{
