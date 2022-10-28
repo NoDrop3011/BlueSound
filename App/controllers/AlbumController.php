@@ -36,7 +36,7 @@ class AlbumController extends Controller {
         $page = 1;
         if (isset($_GET["page"])) $page = $_GET["page"];
 
-        $rowPerPage = 1;
+        $rowPerPage = 10;
 
         $searchKey = "";
         if (isset($_GET["searchkey"])) $searchKey = $_GET["searchkey"];
